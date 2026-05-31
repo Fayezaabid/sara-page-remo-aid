@@ -1,0 +1,2770 @@
+<!DOCTYPE html>
+<html lang="de" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>remoaid — Virtuelle Assistenz, die mitdenkt</title>
+    <meta name="description" content="remoaid — virtuelle Assistenz, die mitdenkt. Ich übernehme Backoffice, Kanzleimanagement &amp; Notion-Systeme, damit du dich voll aufs Kerngeschäft konzentrierst.">
+    <meta name="author" content="Sara Roksandic">
+    <link rel="canonical" href="https://www.remoaid.de/">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+    <meta name="theme-color" content="#F4EEE0">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="remoaid">
+    <meta property="og:title" content="remoaid — Virtuelle Assistenz, die mitdenkt">
+    <meta property="og:description" content="Ich übernehme Backoffice, Kanzleimanagement &amp; Notion-Systeme, damit du dich voll aufs Kerngeschäft konzentrierst.">
+    <meta property="og:url" content="https://www.remoaid.de/">
+    <meta property="og:locale" content="de_DE">
+    <meta property="og:image" content="https://www.remoaid.de/assets/sara-main-new.png">
+    <meta property="og:image:width" content="1024">
+    <meta property="og:image:height" content="1024">
+    <meta property="og:image:alt" content="Sara — Gründerin von remoaid">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="remoaid — Virtuelle Assistenz, die mitdenkt">
+    <meta name="twitter:description" content="Ich übernehme Backoffice, Kanzleimanagement &amp; Notion-Systeme, damit du dich voll aufs Kerngeschäft konzentrierst.">
+    <meta name="twitter:image" content="https://www.remoaid.de/assets/sara-main-new.png">
+    <meta name="twitter:image:alt" content="Sara — Gründerin von remoaid">
+
+    <link rel="icon" href="assets/favicon.png" type="image/svg+xml">
+
+    <link rel="stylesheet" href="assets/fa/css/all.min.css">
+    <link rel="stylesheet" href="assets/tailwind.css">
+
+    <style>
+        @font-face {
+            font-family: 'Satoshi';
+            src: url('assets/fonts/satoshi-300.woff2') format('woff2');
+            font-weight: 300;
+            font-style: normal;
+            font-display: swap;
+        }
+        @font-face {
+            font-family: 'Satoshi';
+            src: url('assets/fonts/satoshi-400.woff2') format('woff2');
+            font-weight: 400;
+            font-style: normal;
+            font-display: swap;
+        }
+        @font-face {
+            font-family: 'Satoshi';
+            src: url('assets/fonts/satoshi-500.woff2') format('woff2');
+            font-weight: 500;
+            font-style: normal;
+            font-display: swap;
+        }
+        @font-face {
+            font-family: 'Satoshi';
+            src: url('assets/fonts/satoshi-700.woff2') format('woff2');
+            font-weight: 700;
+            font-style: normal;
+            font-display: swap;
+        }
+        @font-face {
+            font-family: 'Gabarito';
+            src: url('assets/fonts/gabarito.woff2') format('woff2-variations');
+            font-weight: 400 900;
+            font-style: normal;
+            font-display: swap;
+        }
+        @font-face {
+            font-family: 'Caveat';
+            src: url('assets/fonts/caveat.woff2') format('woff2-variations');
+            font-weight: 400 700;
+            font-style: normal;
+            font-display: swap;
+        }
+
+        html,
+        body {
+            background: #F4EEE0;
+            color: #0E0E0E;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        body {
+            font-family: 'Satoshi', system-ui, sans-serif;
+            font-weight: 400;
+        }
+
+        ::selection {
+            background: #FF6A3D;
+            color: #FAF6EC;
+        }
+
+        .display {
+            font-family: 'Gabarito', sans-serif;
+            font-weight: 700;
+            line-height: 0.95;
+            letter-spacing: -0.035em;
+        }
+
+        .italic-pop {
+            font-family: 'Gabarito', sans-serif;
+            font-style: italic;
+            font-weight: 600;
+        }
+
+        .hand {
+            font-family: 'Caveat', cursive;
+            font-weight: 600;
+        }
+
+        .tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.45rem 1rem;
+            background: #0E0E0E;
+            color: #F4EEE0;
+            border-radius: 999px;
+            font-size: 0.78rem;
+            font-weight: 500;
+            letter-spacing: 0.02em;
+        }
+
+        .tag.light {
+            background: #FAF6EC;
+            color: #0E0E0E;
+            border: 1px solid #0E0E0E15;
+        }
+
+        .tag .star {
+            color: #FF6A3D;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+            padding: 0.95rem 1.55rem;
+            border-radius: 999px;
+            font-size: 0.92rem;
+            font-weight: 500;
+            transition: transform .35s cubic-bezier(.2, .8, .2, 1), background .25s ease, color .25s ease;
+            white-space: nowrap;
+        }
+
+        .btn-dark {
+            background: #0E0E0E;
+            color: #F4EEE0;
+        }
+
+        .btn-dark:hover {
+            background: #FF6A3D;
+            color: #0E0E0E;
+        }
+
+        .btn-coral {
+            background: #FF6A3D;
+            color: #0E0E0E;
+        }
+
+        .btn-coral:hover {
+            background: #0E0E0E;
+            color: #F4EEE0;
+        }
+
+        .btn-light {
+            background: #FAF6EC;
+            color: #0E0E0E;
+            border: 1px solid #0E0E0E18;
+        }
+
+        .btn-light:hover {
+            background: #0E0E0E;
+            color: #F4EEE0;
+            border-color: #0E0E0E;
+        }
+
+        .btn .arrow {
+            transition: transform .35s cubic-bezier(.2, .8, .2, 1);
+            display: inline-block;
+        }
+
+        .btn:hover .arrow {
+            transform: translate(2px, -2px);
+        }
+
+        .doodle {
+            position: absolute;
+            pointer-events: none;
+        }
+
+        .doodle path,
+        .doodle line,
+        .doodle circle {
+            stroke: #0E0E0E;
+            stroke-width: 2.2;
+            stroke-linecap: round;
+            fill: none;
+        }
+
+        .doodle.coral path,
+        .doodle.coral line,
+        .doodle.coral circle {
+            stroke: #FF6A3D;
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(28px);
+            transition: opacity 1s cubic-bezier(.2, .8, .2, 1), transform 1s cubic-bezier(.2, .8, .2, 1);
+        }
+
+        .reveal.in {
+            opacity: 1;
+            transform: none;
+        }
+
+        .reveal-stagger>* {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity .85s cubic-bezier(.2, .8, .2, 1), transform .85s cubic-bezier(.2, .8, .2, 1);
+        }
+
+        .reveal-stagger.in>* {
+            opacity: 1;
+            transform: none;
+        }
+
+        .reveal-stagger.in>*:nth-child(1) {
+            transition-delay: 0.05s;
+        }
+
+        .reveal-stagger.in>*:nth-child(2) {
+            transition-delay: 0.13s;
+        }
+
+        .reveal-stagger.in>*:nth-child(3) {
+            transition-delay: 0.21s;
+        }
+
+        .reveal-stagger.in>*:nth-child(4) {
+            transition-delay: 0.29s;
+        }
+
+        .reveal-stagger.in>*:nth-child(5) {
+            transition-delay: 0.37s;
+        }
+
+        .reveal-stagger.in>*:nth-child(6) {
+            transition-delay: 0.45s;
+        }
+
+        .svc-pink {
+            background: #FBD2D8;
+        }
+
+        .svc-mint {
+            background: #C8EBD3;
+        }
+
+        .svc-lilac {
+            background: #D9D0F5;
+        }
+
+        .svc-butter {
+            background: #FFE9A8;
+        }
+
+        .svc-icon {
+            width: 54px;
+            height: 54px;
+            border-radius: 16px;
+            background: #0E0E0E;
+            color: #F4EEE0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.15rem;
+            margin-bottom: 1.4rem;
+        }
+
+        .svc-num {
+            position: absolute;
+            top: 1.1rem;
+            right: 1.4rem;
+            font-family: 'Caveat', cursive;
+            font-size: 1.5rem;
+            color: #0E0E0E;
+            opacity: .55;
+        }
+
+        .float-anim-2 {
+            animation: float2 8s ease-in-out infinite;
+        }
+
+        @keyframes float2 {
+
+            0%,
+            100% {
+                transform: translateY(0) rotate(2deg);
+            }
+
+            50% {
+                transform: translateY(-10px) rotate(4deg);
+            }
+        }
+
+        .sticky-note {
+            display: inline-block;
+            padding: 0.55rem 1.1rem;
+            background: #FBD2D8;
+            border-radius: 999px;
+            font-family: 'Caveat', cursive;
+            font-weight: 700;
+            font-size: 1.2rem;
+            transform: rotate(-3deg);
+            border: 1.5px solid #0E0E0E;
+        }
+
+        .brand-stamp {
+            position: absolute;
+            width: 76px;
+            height: 76px;
+            background: #FAF6EC;
+            border: 2px solid #0E0E0E;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 3px 3px 0 #0E0E0E;
+            z-index: 25;
+            animation: rotateStamp 18s linear infinite;
+        }
+
+        .brand-stamp svg {
+            width: 88%;
+            height: 88%;
+        }
+
+        @keyframes rotateStamp {
+            from {
+                transform: rotate(0deg);
+            }
+
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        .bento {
+            background: #FAF6EC;
+            border-radius: 28px;
+            padding: 1.8rem;
+            border: 1px solid #0E0E0E10;
+        }
+
+        .stat-note {
+            position: relative;
+            padding: 1.1rem 0.9rem 1rem;
+            border: 1.5px solid #0E0E0E;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 8px 10px 0 -3px rgba(14, 14, 14, 0.06), 0 14px 30px -12px rgba(14, 14, 14, 0.28);
+            transition: transform .35s cubic-bezier(.2, .8, .2, 1);
+        }
+
+        .stat-note:hover {
+            transform: rotate(0deg) translateY(-4px) !important;
+        }
+
+        .stat-note .tape {
+            position: absolute;
+            top: -10px;
+            left: 50%;
+            width: 58px;
+            height: 16px;
+            background: rgba(14, 14, 14, 0.22);
+            transform: translateX(-50%) rotate(var(--tape-rot, 0deg));
+            border-left: 1px dashed rgba(255, 255, 255, 0.35);
+            border-right: 1px dashed rgba(255, 255, 255, 0.35);
+        }
+
+        .segmented-control {
+            display: inline-flex;
+            background: #0E0E0E;
+            padding: 4px;
+            border-radius: 99px;
+            border: 2.2px solid #0E0E0E;
+            box-shadow: 0 12px 32px -8px rgba(14, 14, 14, 0.25);
+            margin-bottom: 2.2rem;
+            position: relative;
+            z-index: 20;
+        }
+
+        .segmented-btn {
+            padding: 0.55rem 1.4rem;
+            border-radius: 99px;
+            font-size: 0.82rem;
+            font-weight: 700;
+            color: #F4EEE0;
+            transition: all 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+            cursor: pointer;
+            border: none;
+            background: transparent;
+            outline: none;
+        }
+
+        .segmented-btn.active {
+            background: #FF6A3D;
+            
+            color: #0E0E0E;
+            box-shadow: 0 4px 10px rgba(255, 106, 61, 0.25);
+        }
+
+        .sorting-area {
+            perspective: 1200px;
+            min-height: 520px;
+            position: relative;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: visible;
+        }
+
+        .sorting-card {
+            transition: all 1.3s cubic-bezier(0.25, 1, 0.25, 1.05);
+            transform-origin: center center;
+            will-change: transform, opacity, filter;
+            z-index: 10;
+        }
+
+        .shelf-line {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            width: 110%;
+            height: 16px;
+            background: #0E0E0E;
+            
+            transform: translateX(-50%) rotate(-0.5deg);
+            border-radius: 4px;
+            box-shadow: 0 15px 30px rgba(14, 14, 14, 0.25);
+            z-index: 5;
+        }
+
+        .shelf-line::after {
+            content: '';
+            position: absolute;
+            top: 2px;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: rgba(255, 255, 255, 0.15);
+            
+            border-radius: 4px;
+        }
+
+        .desk-accessory {
+            position: absolute;
+            bottom: 36px;
+            z-index: 15;
+            transition: transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
+        }
+
+        .desk-accessory:hover {
+            transform: scale(1.12) translateY(-3px);
+        }
+
+        .coffee-cup-container {
+            right: 25px;
+            width: 32px;
+            height: 28px;
+        }
+
+        .coffee-mug {
+            width: 26px;
+            height: 22px;
+            background: #FF6A3D;
+            
+            border: 2px solid #0E0E0E;
+            border-radius: 0 0 10px 10px;
+            position: relative;
+        }
+
+        .coffee-mug::after {
+            content: '';
+            position: absolute;
+            top: 3px;
+            right: -8px;
+            width: 8px;
+            height: 10px;
+            border: 2px solid #0E0E0E;
+            border-left: none;
+            border-radius: 0 50% 50% 0;
+        }
+
+        .steam-waves {
+            position: absolute;
+            top: -16px;
+            left: 6px;
+            display: flex;
+            gap: 4px;
+        }
+
+        .steam-line {
+            width: 2px;
+            height: 12px;
+            background: rgba(14, 14, 14, 0.3);
+            border-radius: 99px;
+            animation: riseSteam 2.2s infinite ease-in-out;
+        }
+
+        .steam-line:nth-child(2) {
+            animation-delay: 0.4s;
+            height: 16px;
+            top: -4px;
+        }
+
+        .steam-line:nth-child(3) {
+            animation-delay: 0.8s;
+        }
+
+        @keyframes riseSteam {
+            0% {
+                transform: translateY(2px) scaleY(0.6);
+                opacity: 0;
+            }
+
+            50% {
+                transform: translateY(-4px) scaleY(1) rotate(5deg);
+                opacity: 0.6;
+            }
+
+            100% {
+                transform: translateY(-10px) scaleY(0.5);
+                opacity: 0;
+            }
+        }
+
+        .succulent-container {
+            left: 25px;
+            width: 34px;
+            height: 40px;
+        }
+
+        .succulent-pot {
+            width: 24px;
+            height: 18px;
+            background: #C8EBD3;
+            
+            border: 2px solid #0E0E0E;
+            border-radius: 0 0 6px 6px;
+            margin: 0 auto;
+            position: relative;
+            top: 22px;
+        }
+
+        .succulent-plant {
+            position: absolute;
+            bottom: 14px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 28px;
+            height: 24px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .succulent-leaf {
+            position: absolute;
+            width: 10px;
+            height: 16px;
+            background: #4A7C59;
+            border: 1.5px solid #0E0E0E;
+            border-radius: 50% 50% 0 0;
+            transform-origin: bottom center;
+        }
+
+        .succulent-leaf:nth-child(1) {
+            transform: rotate(-25deg) translate(-4px, 2px);
+        }
+
+        .succulent-leaf:nth-child(2) {
+            transform: rotate(0deg) translate(0, 0);
+            height: 18px;
+            z-index: 2;
+        }
+
+        .succulent-leaf:nth-child(3) {
+            transform: rotate(25deg) translate(4px, 2px);
+        }
+
+        .clutter-item {
+            position: absolute;
+            padding: 0.45rem 0.9rem;
+            border: 2px solid #0E0E0E;
+            border-radius: 10px;
+            font-size: 0.72rem;
+            font-weight: 700;
+            box-shadow: 4px 4px 0 #0E0E0E;
+            transition: all 1.2s cubic-bezier(0.2, 0.8, 0.2, 1.15);
+            z-index: 12;
+            pointer-events: none;
+            opacity: 0;
+            transform: scale(0.4) rotate(0deg);
+        }
+
+        .clutter-item.clutter-pink {
+            background: #FBD2D8;
+        }
+
+        .clutter-item.clutter-butter {
+            background: #FFE9A8;
+        }
+
+        .clutter-item.clutter-lilac {
+            background: #D9D0F5;
+        }
+
+        .clutter-item.clutter-mint {
+            background: #C8EBD3;
+        }
+
+        .clutter-item.clutter-red {
+            background: #FF6A3D;
+            color: #FAF6EC;
+        }
+
+        .chaos-active .clutter-item {
+            opacity: 1;
+            transform: scale(1) rotate(var(--rot, 0deg));
+        }
+
+        .chaos-active .c-item-1 {
+            top: 8%;
+            left: 6%;
+            --rot: -12deg;
+            animation: floatClutter1 6s infinite ease-in-out;
+        }
+
+        .chaos-active .c-item-2 {
+            top: 22%;
+            right: 4%;
+            --rot: 14deg;
+            animation: floatClutter2 7s infinite ease-in-out;
+        }
+
+        .chaos-active .c-item-3 {
+            bottom: 35%;
+            left: 2%;
+            --rot: -8deg;
+            animation: floatClutter1 8s infinite ease-in-out 1s;
+        }
+
+        .chaos-active .c-item-4 {
+            top: 44%;
+            right: 8%;
+            --rot: 6deg;
+            animation: floatClutter2 6s infinite ease-in-out 0.5s;
+        }
+
+        .chaos-active .c-item-5 {
+            top: 12%;
+            right: 36%;
+            --rot: 18deg;
+            animation: floatClutter1 7s infinite ease-in-out 0.8s;
+        }
+
+        .chaos-active .c-item-6 {
+            bottom: 25%;
+            right: 5%;
+            --rot: -5deg;
+            animation: floatClutter2 8s infinite ease-in-out 0.3s;
+        }
+
+        @keyframes floatClutter1 {
+
+            0%,
+            100% {
+                transform: scale(1) rotate(var(--rot)) translateY(0px);
+            }
+
+            50% {
+                transform: scale(1) rotate(calc(var(--rot) + 4deg)) translateY(-8px);
+            }
+        }
+
+        @keyframes floatClutter2 {
+
+            0%,
+            100% {
+                transform: scale(1) rotate(var(--rot)) translateY(0px);
+            }
+
+            50% {
+                transform: scale(1) rotate(calc(var(--rot) - 5deg)) translateY(-10px);
+            }
+        }
+
+        .chaos-active .sorting-card {
+            opacity: 0.28;
+            filter: blur(4px);
+            z-index: 1;
+        }
+
+        .chaos-active .item-4 {
+            transform: translate(-140px, -180px) rotate(-28deg) scale(0.72);
+        }
+
+        .chaos-active .item-3 {
+            transform: translate(130px, -210px) rotate(32deg) scale(0.76);
+        }
+
+        .chaos-active .item-2 {
+            transform: translate(-90px, -35px) rotate(-16deg) scale(0.7);
+        }
+
+        .chaos-active .item-1 {
+            transform: translate(110px, -50px) rotate(20deg) scale(0.74);
+        }
+
+        .system-active .sorting-card {
+            opacity: 1;
+            filter: blur(0);
+            transform: translate(0, var(--translate-y, 0px)) rotate(var(--rotate, 0deg)) scale(var(--scale, 1));
+        }
+
+        .system-active .item-4 {
+            --translate-y: 16px;
+            --rotate: 1deg;
+            --scale: 1;
+        }
+
+        .system-active .item-3 {
+            --translate-y: -56px;
+            --rotate: -1.5deg;
+            --scale: 1;
+        }
+
+        .system-active .item-2 {
+            --translate-y: -128px;
+            --rotate: 2deg;
+            --scale: 1;
+        }
+
+        .system-active .item-1 {
+            --translate-y: -200px;
+            --rotate: -1deg;
+            --scale: 1;
+        }
+
+        .system-active .sorting-card:hover {
+            transition: transform 0.35s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.35s ease !important;
+            transform: translate(0, calc(var(--translate-y, 0px) - 10px)) rotate(0deg) scale(calc(var(--scale, 1) * 1.05)) !important;
+            z-index: 30;
+            box-shadow: 0 25px 45px rgba(14, 14, 14, 0.3) !important;
+        }
+
+        .progress-bar-container {
+            width: 100%;
+            height: 6px;
+            background: rgba(14, 14, 14, 0.08);
+            border-radius: 99px;
+            overflow: hidden;
+            margin-top: 10px;
+            border: 1px solid #0E0E0E;
+        }
+
+        .progress-fill {
+            height: 100%;
+            width: 0%;
+            background: #FF6A3D;
+            
+            border-radius: 99px;
+            transition: width 1.2s cubic-bezier(0.2, 0.8, 0.2, 1);
+        }
+
+        .system-active .progress-fill {
+            width: 100%;
+            transition-delay: 0.8s;
+        }
+
+        .inbox-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: #0E0E0E;
+            color: #C8EBD3;
+            font-size: 0.65rem;
+            padding: 2.5px 8px;
+            border-radius: 99px;
+            font-weight: 700;
+            margin-top: 10px;
+            transition: all 0.5s ease;
+            opacity: 0.5;
+            border: 1px solid #0E0E0E;
+        }
+
+        .system-active .inbox-badge {
+            background: #4A7C59;
+            color: #FAF6EC;
+            opacity: 1;
+            box-shadow: 0 0 10px rgba(74, 124, 89, 0.4);
+            transition-delay: 0.9s;
+        }
+
+        .kanban-board {
+            display: grid;
+            grid-template-cols: repeat(2, minmax(0, 1fr));
+            gap: 8px;
+            margin-top: 12px;
+            background: rgba(14, 14, 14, 0.05);
+            border: 1px solid #0E0E0E;
+            border-radius: 8px;
+            padding: 6px;
+        }
+
+        .kanban-col {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .kanban-col-title {
+            font-size: 0.5rem;
+            text-transform: uppercase;
+            font-weight: 800;
+            color: #0E0E0E60;
+            margin-bottom: 2px;
+        }
+
+        .kanban-task {
+            background: #FAF6EC;
+            border: 1px solid #0E0E0E;
+            border-radius: 4px;
+            padding: 3px 5px;
+            font-size: 0.5rem;
+            font-weight: 700;
+            transition: all 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+        }
+
+        .moving-todo {
+            opacity: 1;
+            transform: translateX(0);
+            transition: all 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
+        }
+
+        .system-active .moving-todo {
+            opacity: 0;
+            transform: translateX(18px);
+            transition-delay: 1.0s;
+        }
+
+        .moving-done {
+            opacity: 0;
+            transform: translateX(-18px);
+            transition: all 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
+            background: #C8EBD3 !important;
+        }
+
+        .system-active .moving-done {
+            opacity: 1;
+            transform: translateX(0);
+            transition-delay: 1.2s;
+        }
+
+        .data-grids {
+            display: flex;
+            gap: 5px;
+            margin-top: 10px;
+        }
+
+        .grid-block {
+            flex: 1;
+            height: 12px;
+            border: 1px solid #0E0E0E;
+            border-radius: 4px;
+            background: rgba(14, 14, 14, 0.06);
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            padding: 0 3px;
+        }
+
+        .grid-dot {
+            width: 3px;
+            height: 3px;
+            border-radius: 50%;
+            background: #0E0E0E40;
+            transition: background 0.5s ease;
+        }
+
+        .system-active .grid-dot {
+            background: #FF6A3D;
+            
+            transition-delay: 1.3s;
+        }
+
+        @media (max-width: 768px) {
+            .sorting-area {
+                min-height: 460px;
+            }
+
+            .system-active .item-4 {
+                --translate-y: 16px;
+                --rotate: 1deg;
+                --scale: 0.92;
+            }
+
+            .system-active .item-3 {
+                --translate-y: -42px;
+                --rotate: -1.5deg;
+                --scale: 0.92;
+            }
+
+            .system-active .item-2 {
+                --translate-y: -100px;
+                --rotate: 2deg;
+                --scale: 0.92;
+            }
+
+            .system-active .item-1 {
+                --translate-y: -158px;
+                --rotate: -1deg;
+                --scale: 0.92;
+            }
+
+            .chaos-active .item-4 {
+                transform: translate(-90px, -140px) rotate(-24deg) scale(0.65);
+            }
+
+            .chaos-active .item-3 {
+                transform: translate(80px, -170px) rotate(28deg) scale(0.68);
+            }
+
+            .chaos-active .item-2 {
+                transform: translate(-60px, -30px) rotate(-15deg) scale(0.62);
+            }
+
+            .chaos-active .item-1 {
+                transform: translate(70px, -45px) rotate(18deg) scale(0.65);
+            }
+        }
+
+        
+        .photo-stack {
+            position: relative;
+            width: 100%;
+            max-width: 320px;
+            margin: 0 auto;
+            perspective: 1000px;
+        }
+
+        .peeking-card {
+            position: absolute;
+            top: 10px;
+            left: -15px;
+            width: 100%;
+            height: 100%;
+            background: #FAF6EC;
+            border: 1.5px solid #0E0E0E;
+            border-radius: 12px;
+            box-shadow: 0 15px 35px -15px rgba(14, 14, 14, 0.2);
+            transform: rotate(4deg);
+            z-index: 1;
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: transform .6s cubic-bezier(.2, .8, .2, 1);
+        }
+
+        .photo-stack:hover .peeking-card {
+            transform: translate(-15px, -20px) rotate(8deg);
+        }
+
+        .photo-stack .polaroid {
+            position: relative;
+            z-index: 2;
+            background: #FAF6EC;
+            padding: 1rem 1rem 2rem 1rem;
+            border-radius: 12px;
+            border: 1.5px solid #0E0E0E;
+            box-shadow: 0 25px 50px -20px rgba(14, 14, 14, 0.25);
+            transition: transform .6s cubic-bezier(.2, .8, .2, 1), box-shadow .6s cubic-bezier(.2, .8, .2, 1);
+        }
+
+        .photo-stack:hover .polaroid {
+            transform: rotate(-1deg) translateY(-8px) scale(1.02);
+            box-shadow: 0 35px 60px -25px rgba(14, 14, 14, 0.35);
+        }
+
+        .polaroid img {
+            border-radius: 4px;
+            display: block;
+            width: 100%;
+        }
+
+        .polaroid .caption {
+            font-family: 'Caveat', cursive;
+            font-weight: 700;
+            font-size: 1.4rem;
+            text-align: center;
+            margin-top: 0.6rem;
+        }
+
+        .push-pin {
+            position: absolute;
+            top: -16px;
+            left: 52%;
+            transform: translateX(-50%) rotate(8deg);
+            width: 16px;
+            height: 16px;
+            background: #FF6A3D;
+            
+            border-radius: 50%;
+            box-shadow: inset -3px -3px 6px rgba(0, 0, 0, 0.35), 0 8px 12px rgba(14, 14, 14, 0.3);
+            z-index: 10;
+        }
+
+        .push-pin::before {
+            content: '';
+            position: absolute;
+            top: 8px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 2.5px;
+            height: 10px;
+            background: #A0A0A0;
+            box-shadow: 3px 4px 3px rgba(14, 14, 14, 0.45);
+        }
+
+        .folder-tab {
+            position: absolute;
+            top: -21px;
+            left: 24px;
+            height: 22px;
+            background: #FAF6EC;
+            border: 2px solid #0E0E0E;
+            border-bottom: none;
+            border-radius: 8px 8px 0 0;
+            padding: 0 14px;
+            display: flex;
+            align-items: center;
+            font-family: 'Satoshi', sans-serif;
+            font-size: 0.7rem;
+            font-weight: 700;
+            color: #0E0E0E70;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            box-shadow: 0 -4px 10px rgba(14, 14, 14, 0.02);
+            z-index: 5;
+        }
+
+        
+        .card-legal-pad {
+            background-color: #FFE9A8 !important;
+            
+            background-image: linear-gradient(rgba(14, 14, 14, 0.08) 1px, transparent 1px) !important;
+            background-size: 100% 20px !important;
+            background-position: 0 10px !important;
+            border-left: 2px solid rgba(255, 106, 61, 0.35) !important;
+            
+            padding-top: 2rem !important;
+            padding-left: 1.5rem !important;
+            padding-right: 1.5rem !important;
+            clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+            position: relative;
+        }
+
+        .card-legal-pad::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 6px;
+            background-image: radial-gradient(circle, transparent 3px, #0E0E0E 3px);
+            background-size: 8px 12px;
+            background-position: center -6px;
+            opacity: 0.15;
+        }
+
+        .card-post-it {
+            background-color: #C8EBD3 !important;
+            
+            position: relative;
+            transition: transform .4s cubic-bezier(.2, .8, .2, 1), box-shadow .4s cubic-bezier(.2, .8, .2, 1) !important;
+        }
+
+        .card-post-it::after {
+            content: "";
+            position: absolute;
+            z-index: -1;
+            bottom: 8px;
+            right: 12px;
+            width: 70%;
+            height: 15px;
+            background: rgba(14, 14, 14, 0.35);
+            box-shadow: 0 12px 14px rgba(14, 14, 14, 0.45);
+            transform: rotate(4deg) skew(8deg);
+            transition: transform .4s ease, box-shadow .4s ease;
+        }
+
+        .card-post-it:hover::after {
+            transform: rotate(6deg) skew(12deg) translateY(2px);
+            box-shadow: 0 16px 18px rgba(14, 14, 14, 0.55);
+        }
+
+        .card-postcard {
+            background-color: #FAF6EC !important;
+            
+            border: 2.2px solid #0E0E0E !important;
+            box-shadow: 6px 6px 0px #0E0E0E !important;
+            position: relative;
+        }
+
+        .coffee-stain {
+            position: absolute;
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            border: 3.5px solid rgba(139, 90, 43, 0.12);
+            
+            box-shadow: inset 0 0 10px rgba(139, 90, 43, 0.08);
+            bottom: -15px;
+            right: -15px;
+            transform: rotate(-15deg);
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .coffee-stain::after {
+            content: '';
+            position: absolute;
+            top: 10px;
+            left: 5px;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            border: 1.5px solid rgba(139, 90, 43, 0.08);
+        }
+
+        .card-blueprint {
+            background-color: #D9D0F5 !important;
+            
+            background-image:
+                linear-gradient(rgba(14, 14, 14, 0.04) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(14, 14, 14, 0.04) 1px, transparent 1px) !important;
+            background-size: 10px 10px !important;
+            position: relative;
+        }
+
+        .blueprint-tab {
+            position: absolute;
+            top: -10px;
+            right: 20px;
+            background: #0E0E0E;
+            color: #D9D0F5;
+            font-size: 0.55rem;
+            font-weight: 700;
+            padding: 2px 8px;
+            border-radius: 4px 4px 0 0;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .paperclip {
+            position: absolute;
+            top: -14px;
+            left: 18px;
+            width: 14px;
+            height: 38px;
+            border: 2px solid #0E0E0E;
+            border-radius: 10px;
+            background: transparent;
+            z-index: 15;
+            pointer-events: none;
+            transform: rotate(-10deg);
+            box-shadow: 1px 2px 3px rgba(14, 14, 14, 0.15);
+        }
+
+        .paperclip::after {
+            content: '';
+            position: absolute;
+            top: 4px;
+            left: 2px;
+            width: 6px;
+            height: 24px;
+            border: 2px solid #0E0E0E;
+            border-radius: 6px;
+            border-top: none;
+        }
+
+        .paperclip::before {
+            content: '';
+            position: absolute;
+            top: 10px;
+            left: 0;
+            width: 10px;
+            height: 16px;
+            border: 2.2px solid #0E0E0E20;
+            
+            border-radius: 5px;
+            border-bottom: none;
+            z-index: -1;
+        }
+
+        .desktop-lift {
+            transition: transform .4s cubic-bezier(.2, .8, .2, 1), box-shadow .4s cubic-bezier(.2, .8, .2, 1), border-color .3s ease !important;
+            will-change: transform, box-shadow;
+        }
+
+        .desktop-lift:hover {
+            transform: translateY(-8px) rotate(0deg) scale(1.03) !important;
+            box-shadow: 0 20px 35px -10px rgba(14, 14, 14, 0.28) !important;
+            z-index: 10;
+        }
+
+        
+        .faq {
+            background: #FAF6EC;
+            border: 1px solid #0E0E0E12;
+            border-radius: 22px;
+            margin-bottom: 0.7rem;
+            overflow: hidden;
+            transition: background .3s ease;
+        }
+
+        .faq.open {
+            background: #FBD2D8;
+        }
+
+        .faq-q {
+            width: 100%;
+            padding: 1.4rem 1.6rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 1.5rem;
+            cursor: pointer;
+            text-align: left;
+        }
+
+        .faq-a {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height .5s cubic-bezier(.2, .8, .2, 1);
+        }
+
+        .faq.open .faq-a {
+            max-height: 360px;
+        }
+
+        .faq.open .faq-icon {
+            transform: rotate(45deg);
+            background: #0E0E0E;
+            color: #FBD2D8;
+        }
+
+        .faq-icon {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            border: 1.5px solid #0E0E0E;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            transition: all .35s ease;
+            background: transparent;
+        }
+
+        /* Subtle Background Wave Animations */
+        .subtle-bg-wave {
+            position: absolute;
+            left: 0;
+            width: 100%;
+            pointer-events: none;
+            z-index: 0;
+            overflow: visible;
+        }
+
+        .subtle-bg-wave path {
+            animation: slowWaveMove 16s ease-in-out infinite alternate;
+            transform-origin: center center;
+        }
+
+        .subtle-bg-wave path:nth-child(2) {
+            animation-delay: -6s;
+            animation-duration: 22s;
+        }
+
+        @keyframes slowWaveMove {
+            0% {
+                transform: translateY(-2px) scaleY(0.98) rotate(-0.5deg);
+            }
+            100% {
+                transform: translateY(2px) scaleY(1.02) rotate(0.5deg);
+            }
+        }
+
+    </style>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Organization",
+          "@id": "https://www.remoaid.de/#organization",
+          "name": "remoaid",
+          "legalName": "Remoaid – Schotters, Roksandic & Feuchter GbR",
+          "url": "https://www.remoaid.de/",
+          "email": "info@remoaid.de",
+          "description": "Virtuelle Assistenz für Backoffice, Kanzleimanagement und Notion-Systeme — Sara nimmt dir den Verwaltungslärm ab, damit du dich aufs Kerngeschäft konzentrieren kannst.",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://www.remoaid.de/remoaid-new.webp"
+          },
+          "image": "https://www.remoaid.de/assets/sara-main-new.png",
+          "founder": {
+            "@type": "Person",
+            "name": "Sara Roksandic"
+          },
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Salinenstraße 4",
+            "postalCode": "78073",
+            "addressLocality": "Bad Dürrheim",
+            "addressCountry": "DE"
+          },
+          "areaServed": {
+            "@type": "Country",
+            "name": "Deutschland"
+          },
+          "knowsAbout": [
+            "Virtuelle Assistenz",
+            "Backoffice",
+            "Kanzleimanagement",
+            "Notion-Systeme",
+            "Projektmanagement",
+            "Social Media",
+            "Datenverwaltung"
+          ],
+          "makesOffer": {
+            "@type": "OfferCatalog",
+            "name": "Leistungen",
+            "itemListElement": [
+              { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Administrativer Support", "description": "E-Mails, Termine, Dokumente — zuverlässig sortiert." } },
+              { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Kundenbetreuung" } },
+              { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Projektmanagement" } },
+              { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Social Media" } },
+              { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Datenverwaltung" } },
+              { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Persönliche Assistenz" } }
+            ]
+          }
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://www.remoaid.de/#website",
+          "url": "https://www.remoaid.de/",
+          "name": "remoaid",
+          "inLanguage": "de-DE",
+          "publisher": { "@id": "https://www.remoaid.de/#organization" }
+        },
+        {
+          "@type": "FAQPage",
+          "@id": "https://www.remoaid.de/#faq",
+          "inLanguage": "de-DE",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "Wie läuft die Zusammenarbeit ab?",
+              "acceptedAnswer": { "@type": "Answer", "text": "Nach dem kostenlosen Kennenlerngespräch kläre ich mit dir, welches Modell am besten zu deinem Bedarf passt. Du erhältst ein individuelles Angebot, eine Vereinbarung und einen Starttermin. Die Zusammenarbeit läuft ortsunabhängig." }
+            },
+            {
+              "@type": "Question",
+              "name": "Wie flexibel ist die Zusammenarbeit?",
+              "acceptedAnswer": { "@type": "Answer", "text": "Extrem flexibel! Da jede Zusammenarbeit maßgeschneidert vereinbart wird, passen wir Stundenkontingente oder Projektvolumen ganz einfach an dein aktuelles Business-Wachstum an. Nicht genutzte Stunden verfallen nicht ungenutzt am Monatsende." }
+            },
+            {
+              "@type": "Question",
+              "name": "Was passiert, wenn ich spontan mehr Support brauche?",
+              "acceptedAnswer": { "@type": "Answer", "text": "Gar kein Problem! Wenn in einem Monat mal mehr Arbeit ansteht oder ein größeres Projekt gestartet wird, können wir das Kontingent nach Absprache flexibel aufstocken. Ich informiere dich immer transparent über deinen aktuellen Stand." }
+            },
+            {
+              "@type": "Question",
+              "name": "Wie funktioniert die Zeiterfassung und Abrechnung?",
+              "acceptedAnswer": { "@type": "Answer", "text": "Ich erfasse meine Arbeitszeit minutengenau (per Toggl). Am Monatsende erhältst du eine transparente Aufstellung aller erbrachten Leistungen zusammen mit deiner Rechnung. So zahlst du nur für die Zeit, die auch wirklich produktiv genutzt wurde." }
+            },
+            {
+              "@type": "Question",
+              "name": "Kann ich monatlich kündigen?",
+              "acceptedAnswer": { "@type": "Answer", "text": "Ja. Keine Mindestlaufzeit — du kannst jederzeit zum Monatsende kündigen oder pausieren." }
+            },
+            {
+              "@type": "Question",
+              "name": "Was unterscheidet dich von anderen VAs?",
+              "acceptedAnswer": { "@type": "Answer", "text": "Ich bringe Struktur, Klarheit und echtes Mitdenken. Mit mehrjähriger Büro-Erfahrung, juristischem Background und digitalem Know-how bekommst du keine 08/15-Assistenz, sondern einen Sparringspartner auf Augenhöhe." }
+            }
+          ]
+        }
+      ]
+    }
+    </script>
+</head>
+
+<body class="overflow-x-hidden">
+
+    <nav class="fixed top-4 left-1/2 -translate-x-1/2 z-50 w-[calc(100%-2rem)] max-w-6xl">
+        <div
+            class="bg-soft/85 backdrop-blur-xl border border-ink/10 rounded-full px-3 py-2 flex items-center justify-between shadow-[0_8px_30px_-15px_rgba(14,14,14,0.18)]">
+            <a href="#" class="pl-3 flex items-center gap-2">
+                <img src="remoaid-new.webp" alt="remoaid" class="h-auto w-32">
+            </a>
+            <div class="hidden md:flex items-center gap-1 text-sm">
+                <a href="#leistungen" class="px-4 py-2 rounded-full hover:bg-ink/5 transition">Leistungen</a>
+                <a href="#ueber-mich" class="px-4 py-2 rounded-full hover:bg-ink/5 transition">Über mich</a>
+                <a href="#preise" class="px-4 py-2 rounded-full hover:bg-ink/5 transition">Preise</a>
+                <a href="#faq" class="px-4 py-2 rounded-full hover:bg-ink/5 transition">FAQ</a>
+            </div>
+            <a href="#kontakt" class="btn btn-coral text-xs md:text-sm">
+                <span>Gespräch buchen</span><span class="arrow">↗</span>
+            </a>
+        </div>
+    </nav>
+
+    <section class="relative pt-24 lg:pt-32 pb-12 lg:pb-16 overflow-hidden">
+        <div class="max-w-7xl mx-auto px-6 relative z-10">
+
+            
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-y-6 lg:gap-x-4 items-center">
+
+                <div class="lg:col-span-4 order-1 text-center lg:text-right reveal relative">
+                    <h1
+                        class="display text-[16vw] sm:text-[12vw] lg:text-[5rem] xl:text-[6rem] 2xl:text-[7rem] leading-[0.92]">
+                        <span class="block">Weniger</span>
+                        <span class="inline-block relative">
+                            Chaos<span class="text-coral">.</span>
+                            
+                            <svg class="doodle coral hidden lg:block" style="top:-18px; right:-30px;" width="52"
+                                height="52" viewBox="0 0 64 64" aria-hidden="true">
+                                <path d="M6 32 L58 8 L40 56 L32 38 Z" />
+                                <path d="M32 38 L58 8" />
+                            </svg>
+                        </span>
+                    </h1>
+                </div>
+
+                <div class="lg:col-span-4 order-2 relative reveal flex justify-center py-6">
+                    <div
+                        class="relative w-full max-w-[280px] sm:max-w-xs lg:max-w-none flex items-center justify-center">
+
+                        <div class="hand absolute pointer-events-none select-none hidden lg:block" aria-hidden="true"
+                            style="top: -8%; left: 50%; transform: translateX(-50%) rotate(-6deg); font-size: 13rem; line-height: 0.78; color: rgba(14,14,14,0.06); z-index: 0; white-space: nowrap;">
+                            Sara
+                        </div>
+
+                        <svg class="absolute pointer-events-none"
+                            style="top: 2%; left: 50%; transform: translateX(-50%); z-index: 0;" width="260"
+                            height="140" viewBox="0 0 320 180" aria-hidden="true">
+                            <g stroke="#FF6A3D" stroke-width="2.2" stroke-linecap="round" fill="none" opacity="0.65">
+                                <path d="M160 6 V 46" />
+                                <path d="M104 18 L 124 54" />
+                                <path d="M216 18 L 196 54" />
+                                <path d="M58 50 L 90 70" />
+                                <path d="M262 50 L 230 70" />
+                            </g>
+                        </svg>
+
+                        <img src="assets/sara-main-no-bg.webp" alt="Sara — Gründerin remoaid"
+                            fetchpriority="high" decoding="async"
+                            class="relative w-[90%] h-auto drop-shadow-[0_22px_35px_rgba(14,14,14,0.18)] object-contain"
+                            style="z-index: 2;">
+
+                    </div>
+                </div>
+
+                <div class="lg:col-span-4 order-3 text-center lg:text-left reveal relative">
+                    <h2
+                        class="display text-[16vw] sm:text-[12vw] lg:text-[5rem] xl:text-[6rem] 2xl:text-[7rem] leading-[0.92]">
+                        <span class="italic-pop text-coral block">Mehr</span>
+                        <span class="inline-block relative">
+                            Klarheit<span class="text-coral">.</span>
+                            
+                            <svg class="doodle coral" style="left:0; right:0; bottom:-14px; width:100%;" height="20"
+                                viewBox="0 0 320 22" preserveAspectRatio="none" aria-hidden="true">
+                                <path d="M4 14 Q 40 2, 80 12 T 160 12 T 240 12 T 316 12" />
+                            </svg>
+                        </span>
+                    </h2>
+                </div>
+            </div>
+
+            <div class="mt-14 lg:mt-20 grid lg:grid-cols-12 gap-10 lg:gap-8 items-end reveal">
+
+                <div class="lg:col-span-8">
+                    <p class="text-lg text-ink/75 leading-relaxed max-w-xl">
+                        Hi, ich bin <span class="hand text-coral text-2xl">Sara</span> — deine strategische rechte Hand
+                        für virtuelles Backoffice, Kanzleimanagement &amp; Notion-Systeme. Ich nehme dir den täglichen
+                        Verwaltungslärm ab, damit du dich wieder voll auf dein Kerngeschäft konzentrieren kannst.
+                    </p>
+                    <div class="mt-6 flex flex-wrap items-center gap-3">
+                        <a href="#kontakt" class="btn btn-dark"><span>Erstgespräch</span><span
+                                class="arrow">↗</span></a>
+                        <a href="#leistungen" class="btn btn-light"><span>Leistungen</span></a>
+                        <span
+                            class="hand text-lg text-coral/90 rotate-[-2.5deg] inline-block md:ml-4 mt-2 select-none">—
+                            Erstgespräch kostenlos & unverbindlich!</span>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-4 flex lg:justify-end">
+                    <div class="relative float-anim-2 w-full max-w-[260px]">
+                        
+                        <div class="brand-stamp hover:scale-105 transition-transform duration-300 pointer-events-none"
+                            style="top: -24px; left: -24px;">
+                            <svg viewBox="0 0 100 100" class="w-full h-full">
+                                <defs>
+                                    
+                                    <path id="circlePath" d="M 50, 50 m -37, 0 a 37,37 0 1,1 74,0 a 37,37 0 1,1 -74,0">
+                                    </path>
+                                </defs>
+                                <text class="font-mono text-[7px] font-bold fill-ink tracking-[0.08em]">
+                                    <textPath xlink:href="#circlePath">
+                                        ★ STRUKTUR · FOKUS · EFFIZIENZ · SYSTEME
+                                    </textPath>
+                                </text>
+                                <text x="50" y="55" text-anchor="middle"
+                                    class="font-sans text-xs font-black fill-coral">★</text>
+                            </svg>
+                        </div>
+
+                        <div
+                            class="relative bg-cream border-2 border-ink rounded-[24px] p-6 shadow-[6px_6px_0_#FFE9A8] hover:-translate-y-1 hover:shadow-[8px_8px_0_#FFE9A8] transition-all duration-300">
+                            
+                            <div class="flex justify-between items-center mb-6">
+                                <span class="font-mono text-[9px] font-bold tracking-widest text-ink/50 uppercase">MEMO
+                                    // 01</span>
+                                <span class="text-coral text-xs">★</span>
+                            </div>
+                            
+                            <p class="display text-xl leading-snug text-ink mb-6">
+                                „Struktur nimmt dem Alltag den Lärm und schafft Raum für das, was wirklich zählt.“
+                            </p>
+                            
+                            <div class="border-t border-ink/10 pt-4 flex justify-between items-center">
+                                <span class="hand text-lg text-ink/70">— Sara</span>
+                                <span class="font-mono text-[8px] text-ink/40 tracking-wider">FOUNDER</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mt-16 lg:mt-24 reveal">
+                <div
+                    class="relative w-full border-2 border-ink rounded-[20px] py-5 px-8 bg-butter/30 flex flex-wrap justify-around items-center gap-y-4 gap-x-8 overflow-hidden shadow-[4px_4px_0_#0E0E0E]">
+                    
+                    <div class="absolute inset-x-0 bottom-0 h-3 opacity-25 pointer-events-none"
+                        style="background-image: repeating-linear-gradient(90deg, #0e0e0e 0px, #0e0e0e 1px, transparent 1px, transparent 8px); background-size: 80px 12px;">
+                    </div>
+
+                    <div class="flex items-center gap-3">
+                        <span class="text-xs font-mono text-ink/40">#01</span>
+                        <span class="font-display font-bold text-2xl text-ink">40+</span>
+                        <span class="font-mono text-xs uppercase tracking-wider text-ink/70">ZUFRIEDENE MANDATE</span>
+                    </div>
+                    <div class="w-px h-6 bg-ink/15 hidden md:block"></div>
+
+                    <div class="flex items-center gap-3">
+                        <span class="text-xs font-mono text-ink/40">#02</span>
+                        <span class="font-display font-bold text-2xl text-coral">07 JAHRE</span>
+                        <span class="font-mono text-xs uppercase tracking-wider text-ink/70">BERUFSERFAHRUNG</span>
+                    </div>
+                    <div class="w-px h-6 bg-ink/15 hidden md:block"></div>
+
+                    <div class="flex items-center gap-3">
+                        <span class="text-xs font-mono text-ink/40">#03</span>
+                        <span class="font-display font-bold text-2xl text-ink">&lt; 24h</span>
+                        <span class="font-mono text-xs uppercase tracking-wider text-ink/70">SCHNELLE
+                            REAKTIONSZEIT</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Subtle background wave lines -->
+        <svg class="subtle-bg-wave absolute bottom-12 left-0 w-full pointer-events-none z-0" height="90" viewBox="0 0 1440 90" preserveAspectRatio="none" aria-hidden="true">
+            <path d="M0,35 C360,-10 720,80 1080,10 1440,55" fill="none" stroke="#0E0E0E" stroke-width="1.2" stroke-linecap="round" opacity="0.06" />
+            <path d="M0,45 C360,0 720,90 1080,20 1440,65" fill="none" stroke="#FF6A3D" stroke-width="1.2" stroke-linecap="round" opacity="0.06" />
+        </svg>
+    </section>
+
+    <style>
+        
+        .svc-folder {
+            position: relative;
+            border-radius: 24px;
+            padding: 3rem 2rem 2.2rem;
+            color: #0E0E0E;
+            transition: all .4s cubic-bezier(.25, .8, .25, 1);
+            overflow: visible;
+            
+            border: 2px solid #0E0E0E;
+            box-shadow: 4px 4px 0px #0E0E0E;
+        }
+
+        .svc-folder:hover {
+            transform: translateY(-8px) rotate(0.4deg);
+            box-shadow: 8px 12px 0px #0E0E0E;
+        }
+
+        .svc-folder-tab {
+            position: absolute;
+            top: -22px;
+            left: 24px;
+            height: 22px;
+            padding: 0 0.85rem;
+            font-family: 'Outfit', sans-serif;
+            font-size: 8px;
+            font-weight: 800;
+            letter-spacing: 0.12em;
+            color: #0E0E0E;
+            border: 2px solid #0E0E0E;
+            border-bottom: none;
+            border-radius: 8px 8px 0 0;
+            display: flex;
+            align-items: center;
+            text-transform: uppercase;
+            box-shadow: 2px -2px 0px rgba(14, 14, 14, 0.05);
+        }
+    </style>
+
+    <section id="leistungen" class="bg-ink text-cream pt-28 lg:pt-40 pb-28 lg:pb-40 px-6 relative overflow-hidden">
+        
+        <svg class="absolute top-0 left-0 w-full pointer-events-none" style="height: 70px;" viewBox="0 0 1200 70"
+            preserveAspectRatio="none" aria-hidden="true">
+            <path d="M0,0 H1200 V28 C 1000,72 880,4 600,38 C 320,72 200,4 0,28 Z" fill="#F4EEE0" />
+        </svg>
+        
+        <svg class="absolute bottom-0 left-0 w-full pointer-events-none" style="height: 70px;" viewBox="0 0 1200 70"
+            preserveAspectRatio="none" aria-hidden="true">
+            <path d="M0,70 H1200 V42 C 1000,-2 880,66 600,32 C 320,-2 200,66 0,42 Z" fill="#F4EEE0" />
+        </svg>
+
+        <!-- Subtle background wave lines in dark section -->
+        <svg class="subtle-bg-wave absolute top-1/3 left-0 w-full pointer-events-none z-0" height="120" viewBox="0 0 1440 120" preserveAspectRatio="none" aria-hidden="true">
+            <path d="M-50,60 C320,130 680,-10 1040,100 C1280,170 1480,40 1520,30" fill="none" stroke="#F4EEE0" stroke-width="1.2" stroke-linecap="round" opacity="0.04" />
+            <path d="M-50,70 C320,140 680,0 1040,110 C1280,180 1480,50 1520,40" fill="none" stroke="#FF6A3D" stroke-width="1.0" stroke-linecap="round" opacity="0.04" />
+        </svg>
+
+        <svg class="doodle" style="top:120px; right:8%; opacity:0.35;" width="80" height="80" viewBox="0 0 80 80">
+            <path stroke="#F4EEE0" d="M40 6 L44 36 L74 40 L44 44 L40 74 L36 44 L6 40 L36 36 Z" />
+        </svg>
+
+        <div class="max-w-7xl mx-auto relative z-10">
+            <div class="grid lg:grid-cols-12 gap-8 items-end mb-20">
+                <div class="lg:col-span-7 reveal">
+                    <span class="tag light mb-6"><span class="star">★</span> Leistungen</span>
+                    <h2 class="display text-5xl md:text-6xl lg:text-7xl mt-5">
+                        Sechs Wege<br>aus dem <span class="italic-pop text-coral">Chaos.</span>
+                    </h2>
+                </div>
+                <div class="lg:col-span-5 reveal">
+                    <p class="text-cream/70 text-lg max-w-md">
+                        Ich nehme dir den Verwaltungs-Lärm ab und baue Systeme, die mitwachsen — ohne dass du ständig
+                        Hand anlegen musst.
+                    </p>
+                </div>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-12 pt-6 reveal-stagger">
+
+                <div class="svc-folder svc-pink relative">
+                    <span
+                        class="absolute top-4 right-14 font-mono text-[8px] font-bold text-coral/30 uppercase border border-dashed border-coral/30 px-1.5 py-0.5 rounded">CLASSIFIED
+                        // SK-01</span>
+                    <span class="paperclip" style="top: -12px; left: 82%; transform: rotate(15deg);"></span>
+                    <div class="svc-folder-tab" style="background: #FBD2D8;">SCOPE // 01 · ADMIN</div>
+                    <span class="svc-num">#01</span>
+                    <div class="svc-icon"><i class="fa-regular fa-folder-open"></i></div>
+                    <h3 class="display text-3xl mb-4 font-bold text-ink">Administrativer Support</h3>
+                    <p class="text-xs leading-relaxed text-ink/75 mb-6">E-Mails, Termine, Dokumente — zuverlässig
+                        sortiert, ohne Drama.</p>
+
+                    <div class="border-t border-ink/10 pt-4 space-y-2 text-xs font-mono text-ink/80">
+                        <div class="flex items-center gap-2">
+                            <span class="text-coral">✓</span>
+                            <span>E-Mail- & Terminmanagement</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <span class="text-coral">✓</span>
+                            <span>Dokumentenablage & Struktur</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <span class="text-coral">✓</span>
+                            <span>Vorbereitende Buchhaltung</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="svc-folder svc-mint relative">
+                    <div
+                        class="absolute top-4 right-14 font-mono text-[8px] font-bold text-emerald-600/35 uppercase border border-dashed border-emerald-600/30 px-1.5 py-0.5 rounded rotate-[4deg]">
+                        APPROVED // CRM</div>
+                    
+                    <div
+                        class="absolute bottom-4 right-4 text-[10px] text-ink/15 font-mono border border-dashed border-ink/20 rounded-full w-10 h-10 flex items-center justify-center rotate-[-12deg]">
+                        ★ S.R.</div>
+                    <div class="svc-folder-tab" style="background: #C8EBD3;">SCOPE // 02 · KUNDEN</div>
+                    <span class="svc-num">#02</span>
+                    <div class="svc-icon"><i class="fa-regular fa-comments"></i></div>
+                    <h3 class="display text-3xl mb-4 font-bold text-ink">Kundenbetreuung</h3>
+                    <p class="text-xs leading-relaxed text-ink/75 mb-6">Anfragen beantworten, Angebote versenden, CRM
+                        pflegen — freundlich und professionell.</p>
+
+                    <div class="border-t border-ink/10 pt-4 space-y-2 text-xs font-mono text-ink/80">
+                        <div class="flex items-center gap-2">
+                            <span class="text-coral">✓</span>
+                            <span>Beantwortung von Anfragen</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <span class="text-coral">✓</span>
+                            <span>Erstellung & Versand von Angeboten</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <span class="text-coral">✓</span>
+                            <span>CRM-Pflege & Kontaktverwaltung</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="svc-folder svc-lilac relative">
+                    <span
+                        class="absolute top-4 right-14 font-mono text-[8px] font-bold text-ink/30 uppercase select-none">SYS-DB
+                        // ACTIVE</span>
+                    <div class="svc-folder-tab" style="background: #D9D0F5;">SCOPE // 03 · PROJEKTE</div>
+                    <span class="svc-num">#03</span>
+                    <div class="svc-icon"><i class="fa-solid fa-timeline"></i></div>
+                    <h3 class="display text-3xl mb-4 font-bold text-ink">Projektmanagement</h3>
+                    <p class="text-xs leading-relaxed text-ink/75 mb-6">Notion, Trello, Asana — Workspaces, die dein
+                        Team wirklich aktiv nutzt.</p>
+
+                    <div class="border-t border-ink/10 pt-4 space-y-2 text-xs font-mono text-ink/80">
+                        <div class="flex items-center gap-2">
+                            <span class="text-coral">✓</span>
+                            <span>Notion Workspace Setup & Pflege</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <span class="text-coral">✓</span>
+                            <span>Trello/Asana Task-Verfolgung</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <span class="text-coral">✓</span>
+                            <span>Koordination & Fristenkontrolle</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="svc-folder svc-butter relative">
+                    <span class="tape bg-pink/20" style="--tape-rot: -6deg; width: 45px; top: -10px; left: 70%;"></span>
+                    <div class="svc-folder-tab" style="background: #FFE9A8;">SCOPE // 04 · MEDIA</div>
+                    <span class="svc-num">#04</span>
+                    <div class="svc-icon"><i class="fa-brands fa-instagram"></i></div>
+                    <h3 class="display text-3xl mb-4 font-bold text-ink">Social Media</h3>
+                    <p class="text-xs leading-relaxed text-ink/75 mb-6">Canva-Grafiken, Texte mit Substanz,
+                        Redaktionsplanung. Content, der zu dir passt.</p>
+
+                    <div class="border-t border-ink/10 pt-4 space-y-2 text-xs font-mono text-ink/80">
+                        <div class="flex items-center gap-2">
+                            <span class="text-coral">✓</span>
+                            <span>Canva Grafikdesign & Vorlagen</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <span class="text-coral">✓</span>
+                            <span>Copywriting (LinkedIn/Instagram)</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <span class="text-coral">✓</span>
+                            <span>Redaktionsplanung & Vorbereitung</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="svc-folder svc-pink relative">
+                    <div class="absolute bottom-4 right-4 opacity-20 pointer-events-none"
+                        style="width: 48px; height: 18px; background-image: repeating-linear-gradient(90deg, #0e0e0e, #0e0e0e 1px, transparent 1px, transparent 3px);">
+                    </div>
+                    <span
+                        class="absolute top-4 right-14 font-mono text-[8px] font-bold text-ink/30 uppercase select-none">DB-REGISTRY
+                        // 505</span>
+                    <div class="svc-folder-tab" style="background: #FBD2D8;">SCOPE // 05 · DATEN</div>
+                    <span class="svc-num">#05</span>
+                    <div class="svc-icon"><i class="fa-solid fa-database"></i></div>
+                    <h3 class="display text-3xl mb-4 font-bold text-ink">Datenverwaltung</h3>
+                    <p class="text-xs leading-relaxed text-ink/75 mb-6">Tabellen, digitale Ablage,
+                        Buchhaltungs-Vorbereitung — DSGVO-konform.</p>
+
+                    <div class="border-t border-ink/10 pt-4 space-y-2 text-xs font-mono text-ink/80">
+                        <div class="flex items-center gap-2">
+                            <span class="text-coral">✓</span>
+                            <span>Datenbankpflege & Excel-Tabellen</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <span class="text-coral">✓</span>
+                            <span>Dateistruktur (Google Drive/Dropbox)</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <span class="text-coral">✓</span>
+                            <span>DSGVO-konforme Ablagepflege</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="svc-folder svc-mint relative">
+                    <div class="absolute bottom-3 right-4 hand text-ink/25 text-sm rotate-[-4deg]">— Sara</div>
+                    <div class="svc-folder-tab" style="background: #C8EBD3;">SCOPE // 06 · PRIVATE</div>
+                    <span class="svc-num">#06</span>
+                    <div class="svc-icon"><i class="fa-regular fa-star"></i></div>
+                    <h3 class="display text-3xl mb-4 font-bold text-ink">Persönliche Assistenz</h3>
+                    <p class="text-xs leading-relaxed text-ink/75 mb-6">Reiseplanung, Recherche, Reminder — eine
+                        digitale rechte Hand, die mitdenkt.</p>
+
+                    <div class="border-t border-ink/10 pt-4 space-y-2 text-xs font-mono text-ink/80">
+                        <div class="flex items-center gap-2">
+                            <span class="text-coral">✓</span>
+                            <span>Reisebuchung & Spesenabrechnung</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <span class="text-coral">✓</span>
+                            <span>Themenrecherche & Analysen</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <span class="text-coral">✓</span>
+                            <span>Tägliche Reminder & Terminschutz</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="ueber-mich" class="py-20 lg:py-32 px-6 relative overflow-hidden">
+        
+        <svg class="doodle coral" style="top:60px; left:6%;" width="50" height="50" viewBox="0 0 50 50">
+            <path d="M25 4 L25 46 M4 25 L46 25 M10 10 L40 40 M40 10 L10 40" />
+        </svg>
+
+        <!-- Subtle background wave lines in Über mich -->
+        <svg class="subtle-bg-wave absolute top-12 left-0 w-full pointer-events-none z-0" height="100" viewBox="0 0 1440 100" preserveAspectRatio="none" aria-hidden="true">
+            <path d="M0,20 Q240,70 480,40 T960,40 T1440,60" fill="none" stroke="#FF6A3D" stroke-width="1.2" stroke-linecap="round" opacity="0.06" />
+            <path d="M0,30 Q240,80 480,50 T960,50 T1440,70" fill="none" stroke="#0E0E0E" stroke-width="1.2" stroke-linecap="round" opacity="0.05" />
+        </svg>
+
+        <div class="max-w-7xl mx-auto relative z-10">
+            <div class="grid lg:grid-cols-12 gap-8 items-end mb-14">
+                <div class="lg:col-span-7 reveal">
+                    <span class="tag mb-6"><span class="star">★</span> Über mich</span>
+                    <h2 class="display text-5xl md:text-6xl lg:text-7xl mt-5">
+                        Klein. Leise.<br>
+                        <span class="italic-pop text-coral">Gnadenlos sortiert.</span>
+                    </h2>
+                </div>
+            </div>
+
+            <div class="grid lg:grid-cols-12 gap-6 items-stretch reveal-stagger">
+
+                <div class="lg:col-span-4 flex items-start justify-center">
+                    <div class="photo-stack w-full max-w-sm">
+                        
+                        <div class="peeking-card">
+                            <div class="flex justify-between items-start">
+                                <span>Fokus & Klarheit</span>
+                                <div
+                                    class="w-7 h-9 border border-dashed border-ink/20 flex items-center justify-center font-mono text-[9px] text-ink/40">
+                                    ★</div>
+                            </div>
+                            <div class="my-auto text-center">
+                                <p class="hand text-2xl text-coral rotate-[-4deg] my-2">Struktur schafft Freiheit ✨</p>
+                                <p class="hand text-lg text-ink/65 mt-1">Ordnung im Kopf, Fokus im Business.</p>
+                            </div>
+                            <div
+                                class="border-t border-ink/10 pt-2 text-[10px] text-ink/40 font-mono tracking-widest text-right">
+                                S.R. // 2026
+                            </div>
+                        </div>
+
+                        <div class="polaroid w-full">
+                            <span class="push-pin"></span>
+                            <img src="assets/sara-info.avif" alt="Sara — remoaid" loading="lazy" decoding="async">
+                            <div class="caption">Sara</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-8 grid grid-cols-6 gap-5">
+
+                    <div class="bento col-span-6 relative pt-8 border-2 border-ink">
+                        
+                        <div class="folder-tab">SARA // S.R. — AKTE ORDNUNG</div>
+                        <span class="sticky-note absolute -top-4 right-6">7 Jahre & zählt.</span>
+                        <p class="display text-2xl md:text-3xl leading-snug mt-4 mb-4">
+                            "Ich habe sieben Jahre damit verbracht, anderen Leuten den Schreibtisch zu räumen.
+                            Jetzt mache ich es <span class="italic-pop text-coral">offiziell</span>."
+                        </p>
+                        <p class="text-ink/75 leading-relaxed">
+                            Mit Hintergrund in Kanzleiorganisation und einem Faible für saubere Notion-Datenbanken
+                            unterstütze ich dich und dein Business — persönlich, mitdenkend, ohne Abhak-Mentalität.
+                        </p>
+                    </div>
+
+                    <div class="col-span-6 grid grid-cols-2 md:grid-cols-4 gap-x-3 gap-y-6 pt-5 pb-2 relative">
+                        
+                        <div class="stat-note card-legal-pad desktop-lift py-6 px-4"
+                            style="transform: rotate(-3.5deg);">
+                            <span class="paperclip"></span>
+                            <div class="display text-5xl leading-none text-ink">07</div>
+                            <div class="hand text-lg font-bold text-ink mt-1">Jahre Praxis</div>
+                            <p class="text-sm leading-relaxed text-ink/80 font-mono mt-3.5 text-center">
+                                in Kanzleiorganisation, Teamkoordination & administrativen Prozessen - jetzt für dein
+                                Business.
+                            </p>
+                        </div>
+
+                        <div class="stat-note card-post-it desktop-lift py-6 px-4" style="transform: rotate(2.8deg);">
+                            <span class="tape" style="--tape-rot: 8deg;"></span>
+                            <div class="display text-5xl leading-none text-ink">40<sup
+                                    class="text-xl text-coral font-sans font-bold">+</sup></div>
+                            <div class="hand text-lg font-bold text-ink mt-1">Mandate</div>
+                            <p class="text-sm leading-relaxed text-ink/80 font-mono mt-3.5 text-center">
+                                aus verschiedensten Branchen begleitet - von Soloselbstständigen bis wachsenden Teams.
+                            </p>
+                            <div class="absolute bottom-1.5 right-1.5 text-coral/50 text-[10px]">★</div>
+                        </div>
+
+                        <div class="stat-note card-postcard desktop-lift py-6 px-4" style="transform: rotate(-2.2deg);">
+                            <span class="tape bg-pink/40" style="--tape-rot: -10deg; width: 50px;"></span>
+                            <div class="coffee-stain"></div>
+                            <div class="relative z-10">
+                                <div class="display text-5xl leading-none text-ink">24<sup
+                                        class="text-xl font-sans font-bold">h</sup></div>
+                                <div class="hand text-lg font-bold text-ink mt-1">Reaktion</div>
+                            </div>
+                            <p class="text-sm leading-relaxed text-ink/80 font-mono mt-3.5 text-center relative z-10">
+                                meist antworte ich innerhalb von 24 Stunden - zuverlässig, klar und auf Augenhöhe.
+                            </p>
+                        </div>
+
+                        <div class="stat-note card-blueprint desktop-lift py-6 px-4" style="transform: rotate(4deg);">
+                            <div class="blueprint-tab">notion.sys</div>
+                            <div class="display text-5xl leading-none text-ink mt-2">∞</div>
+                            <div class="hand text-lg font-bold text-ink mt-1">Notion-DBs</div>
+                            <p class="text-sm leading-relaxed text-ink/80 font-mono mt-3.5 text-center">
+                                individuell aufgebaut, perfekt auf dich abgestimmt & jederzeit erweiterbar.
+                            </p>
+                        </div>
+
+                        <svg class="absolute hidden md:block pointer-events-none"
+                            style="top: -14px; left: 24%; transform: rotate(18deg);" width="34" height="48"
+                            viewBox="0 0 34 48">
+                            <path d="M17 6 L17 32 Q 17 40 23 40 Q 29 40 29 32 L29 14 Q 29 9 24 9 Q 19 9 19 14 L19 30"
+                                fill="none" stroke="#0E0E0E" stroke-width="2" stroke-linecap="round" />
+                        </svg>
+                    </div>
+
+                    <div class="col-span-6 mt-6">
+                        <a href="#kontakt"
+                            class="group block w-full bg-pink/10 hover:bg-pink/15 border-2 border-ink rounded-[40px] shadow-[4px_4px_0_#0E0E0E] hover:shadow-[6px_6px_0_#0E0E0E] transition-all duration-300 py-3.5 px-6 md:px-8">
+                            <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-4">
+                                
+                                <div class="flex items-center gap-4 text-left">
+                                    <div
+                                        class="w-10 h-10 rounded-full bg-coral/20 border border-ink/15 flex items-center justify-center text-coral flex-shrink-0">
+                                        <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24"
+                                            class="w-4 h-4">
+                                            <path
+                                                d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+                                        </svg>
+                                    </div>
+                                    <span class="font-bold text-ink text-sm md:text-base tracking-tight">
+                                        Weniger Chaos. Mehr Klarheit. Systeme, die für dich arbeiten.
+                                    </span>
+                                </div>
+                                
+                                <div class="flex items-center justify-between lg:justify-end gap-3 flex-shrink-0">
+                                    <span class="hand text-lg md:text-xl text-coral font-medium whitespace-nowrap">
+                                        Bereit für Ordnung, die bleibt?
+                                    </span>
+                                    
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                        stroke="currentColor" stroke-width="2"
+                                        class="w-6 h-6 text-ink flex-shrink-0 transition-transform duration-300 group-hover:translate-x-2">
+                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                            d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                                    </svg>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+    </section>
+
+    <section id="organisation" class="py-24 lg:py-36 px-6 bg-cream/30 relative overflow-hidden">
+        
+        <div class="absolute inset-0 opacity-[0.03] pointer-events-none"
+            style="background-image: radial-gradient(#0E0E0E 1.5px, transparent 1.5px); background-size: 32px 32px;">
+        </div>
+
+        <!-- Subtle background wave lines behind Bento grid -->
+        <svg class="subtle-bg-wave absolute top-1/4 left-0 w-full pointer-events-none z-0" height="180" viewBox="0 0 1440 180" preserveAspectRatio="none" aria-hidden="true">
+            <path d="M-50,60 C300,180 600,-40 900,120 C1200,240 1500,60 1550,80" fill="none" stroke="#0E0E0E" stroke-width="1.5" stroke-linecap="round" opacity="0.05" />
+            <path d="M-50,70 C300,190 600,-30 900,130 C1200,250 1500,70 1550,90" fill="none" stroke="#FF6A3D" stroke-width="1.2" stroke-linecap="round" opacity="0.04" />
+        </svg>
+
+        <div class="max-w-7xl mx-auto relative z-10">
+            <div class="grid lg:grid-cols-2 gap-16 lg:gap-24 items-center">
+
+                <div class="reveal">
+                    <span class="tag mb-6"><span class="star">★</span> Ordnung</span>
+                    <h2 class="display text-5xl md:text-6xl lg:text-[5.5rem] mt-5 mb-8">
+                        Vom Chaos<br>
+                        <span class="italic-pop text-coral">zum System.</span>
+                    </h2>
+                    <p class="text-ink/75 text-xl mb-10 max-w-lg leading-relaxed">
+                        Ich räume deinen digitalen Schreibtisch nicht nur auf — ich baue ihn so um, dass Ordnung <span
+                            class="italic-pop">bleibt</span>. Kreativ, strukturiert und gnadenlos sortiert.
+                    </p>
+
+                    <div class="grid grid-cols-1 gap-5">
+                        <div
+                            class="flex items-start gap-5 p-5 rounded-2xl bg-soft border border-ink/5 hover:border-coral/30 transition-all group">
+                            <div
+                                class="w-12 h-12 rounded-xl bg-ink text-cream flex items-center justify-center display text-xl flex-shrink-0 group-hover:scale-110 transition-transform">
+                                1</div>
+                            <div>
+                                <div class="display text-2xl mb-1">Status Quo Check</div>
+                                <p class="text-ink/65 text-sm">Wir schauen uns an, wo es klemmt und welche
+                                    "Zettelstapel" wir zuerst angehen.</p>
+                            </div>
+                        </div>
+                        <div
+                            class="flex items-start gap-5 p-5 rounded-2xl bg-soft border border-ink/5 hover:border-coral/30 transition-all group">
+                            <div
+                                class="w-12 h-12 rounded-xl bg-coral text-ink flex items-center justify-center display text-xl flex-shrink-0 group-hover:scale-110 transition-transform">
+                                2</div>
+                            <div>
+                                <div class="display text-2xl mb-1">Das Setup</div>
+                                <p class="text-ink/65 text-sm">Ich erstelle Notion-Dashboards, sortiere Postfächer und
+                                    baue eine logische Ablage.</p>
+                            </div>
+                        </div>
+                        <div
+                            class="flex items-start gap-5 p-5 rounded-2xl bg-soft border border-ink/5 hover:border-coral/30 transition-all group">
+                            <div
+                                class="w-12 h-12 rounded-xl bg-ink text-cream flex items-center justify-center display text-xl flex-shrink-0 group-hover:scale-110 transition-transform">
+                                3</div>
+                            <div>
+                                <div class="display text-2xl mb-1">Smooth Sailing</div>
+                                <p class="text-ink/65 text-sm">Du genießt den freien Kopf, während ich das System im
+                                    Hintergrund sauber halte.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="relative py-12 flex flex-col items-center justify-center">
+
+                    <div class="segmented-control">
+                        <button id="btn-chaos" class="segmented-btn active"
+                            onclick="setDeskMode('chaos')">Chaos-Modus</button>
+                        <button id="btn-system" class="segmented-btn"
+                            onclick="setDeskMode('system')">System-Modus</button>
+                    </div>
+
+                    <div id="desk-shelf-container" class="sorting-area chaos-active relative w-full max-w-sm">
+
+                        <div class="clutter-item clutter-pink c-item-1">Posteingang (842) 🚨</div>
+                        <div class="clutter-item clutter-butter c-item-2">Passwort??.txt 🔑</div>
+                        <div class="clutter-item clutter-lilac c-item-3">untitled_draft_v3.pdf 📄</div>
+                        <div class="clutter-item clutter-mint c-item-4">Meeting verpasst! ⏰</div>
+                        <div class="clutter-item clutter-red c-item-5">Chaos! 🔥</div>
+                        <div class="clutter-item clutter-pink c-item-6">Rechnung_2023.csv 📊</div>
+
+                        <div
+                            class="sorting-card item-4 absolute w-full p-6 bg-butter border-2 border-ink rounded-2xl shadow-xl">
+                            <div class="flex justify-between items-start">
+                                <span class="hand text-ink/50 text-sm">#04 / SYSTEM</span>
+                                <div
+                                    class="w-3.5 h-3.5 border border-ink/40 rounded-full flex items-center justify-center text-[8px] font-bold">
+                                    ✓</div>
+                            </div>
+                            <div class="display text-2xl mt-1">Daten-Struktur</div>
+                            <p class="text-ink/75 text-xs mt-1">Alles an seinem Platz. Keine Suche mehr.</p>
+                            
+                            <div class="data-grids">
+                                <div class="grid-block"><span class="grid-dot"></span><span
+                                        class="grid-dot"></span><span class="grid-dot"></span></div>
+                                <div class="grid-block"><span class="grid-dot"></span><span
+                                        class="grid-dot"></span><span class="grid-dot"></span></div>
+                            </div>
+                        </div>
+
+                        <div
+                            class="sorting-card item-3 absolute w-full p-6 bg-lilac border-2 border-ink rounded-2xl shadow-xl">
+                            <div class="flex justify-between items-start">
+                                <span class="hand text-ink/50 text-sm">#03 / NOTION</span>
+                                <div class="text-[9px] font-mono tracking-wider text-ink/60">DB_V4.SYS</div>
+                            </div>
+                            <div class="display text-2xl mt-1">Notion-Magie</div>
+                            <p class="text-ink/75 text-xs mt-1">Datenbanken, die für dich arbeiten.</p>
+                            
+                            <div class="kanban-board">
+                                <div class="kanban-col">
+                                    <span class="kanban-col-title">ToDo</span>
+                                    <div class="kanban-task moving-todo">Task #1</div>
+                                </div>
+                                <div class="kanban-col">
+                                    <span class="kanban-col-title">Erledigt</span>
+                                    <div class="kanban-task moving-done">Task #1</div>
+                                    <div class="kanban-task" style="background:#C8EBD3; opacity: 0.4;">Done</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div
+                            class="sorting-card item-2 absolute w-full p-6 bg-mint border-2 border-ink rounded-2xl shadow-xl">
+                            <div class="flex justify-between items-start">
+                                <span class="hand text-ink/50 text-sm">#02 / INBOX</span>
+                                <span class="text-[10px] text-ink/60">✉</span>
+                            </div>
+                            <div class="display text-2xl mt-1">Inbox Clarity</div>
+                            <p class="text-ink/75 text-xs mt-1">Vom Chaos zu 0 Benachrichtigungen.</p>
+                            
+                            <span class="inbox-badge">
+                                <span>Zero State</span>
+                            </span>
+                        </div>
+
+                        <div
+                            class="sorting-card item-1 absolute w-full p-6 bg-pink border-2 border-ink rounded-2xl shadow-xl">
+                            <div class="flex justify-between items-start">
+                                <span class="hand text-ink/50 text-sm">#01 / FOKUS</span>
+                                <span class="text-coral">★</span>
+                            </div>
+                            <div class="display text-2xl mt-1">Kopf-Freiheit</div>
+                            <p class="text-ink/75 text-xs mt-1">Dein wichtigstes Asset: Fokus.</p>
+                            
+                            <div class="progress-bar-container">
+                                <div class="progress-fill"></div>
+                            </div>
+                        </div>
+
+                        <div class="shelf-line"></div>
+
+                        <div class="desk-accessory coffee-cup-container">
+                            <div class="steam-waves">
+                                <span class="steam-line"></span>
+                                <span class="steam-line"></span>
+                                <span class="steam-line"></span>
+                            </div>
+                            <div class="coffee-mug"></div>
+                        </div>
+
+                        <div class="desk-accessory succulent-container">
+                            <div class="succulent-plant">
+                                <span class="succulent-leaf"></span>
+                                <span class="succulent-leaf"></span>
+                                <span class="succulent-leaf"></span>
+                            </div>
+                            <div class="succulent-pot"></div>
+                        </div>
+                    </div>
+
+                    <div class="mt-16 hand text-2xl text-ink/60 text-center reveal">
+                        "Saubere Arbeit beginnt mit<br>einem sauberen System."
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <style>
+        
+        .testimonial-polaroid {
+            position: absolute;
+            top: -45px;
+            right: 40px;
+            background: #ffffff;
+            padding: 0.6rem 0.6rem 1.4rem;
+            border: 2px solid #0E0E0E;
+            box-shadow: 6px 8px 0px rgba(14, 14, 14, 0.15);
+            transform: rotate(6deg);
+            z-index: 15;
+            transition: all 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+        }
+
+        .testimonial-polaroid:hover {
+            transform: rotate(0deg) translateY(-8px) scale(1.05);
+            box-shadow: 12px 16px 0px rgba(14, 14, 14, 0.22);
+        }
+
+        .interactive-clarity-card {
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+
+        .interactive-clarity-card .chaos-view {
+            opacity: 1;
+            transform: scale(1);
+            transition: all 0.4s ease;
+        }
+
+        .interactive-clarity-card .system-view {
+            opacity: 0;
+            transform: scale(0.9) translateY(15px);
+            position: absolute;
+            inset: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 2rem;
+            transition: all 0.4s ease;
+        }
+
+        .interactive-clarity-card:hover {
+            background-color: #FAF6EC !important;
+            border-color: #0E0E0E !important;
+            box-shadow: 8px 8px 0px #FF6A3D !important;
+        }
+
+        .interactive-clarity-card:hover .chaos-view {
+            opacity: 0;
+            transform: scale(0.9) translateY(-15px);
+            pointer-events: none;
+        }
+
+        .interactive-clarity-card:hover .system-view {
+            opacity: 1;
+            transform: scale(1) translateY(0);
+        }
+    </style>
+
+    <section class="py-24 lg:py-36 px-6 bg-soft/30 relative overflow-hidden">
+        
+        <div
+            class="absolute top-1/2 left-1/4 -translate-y-1/2 w-[400px] h-[400px] bg-lilac/30 rounded-full filter blur-[120px] pointer-events-none">
+        </div>
+        <div
+            class="absolute bottom-10 right-10 w-[300px] h-[300px] bg-pink/20 rounded-full filter blur-[100px] pointer-events-none">
+        </div>
+
+        <!-- Subtle background wave lines in Prozess section -->
+        <svg class="subtle-bg-wave absolute bottom-16 left-0 w-full pointer-events-none z-0" height="100" viewBox="0 0 1440 100" preserveAspectRatio="none" aria-hidden="true">
+            <path d="M0,50 Q360,90 720,30 T1440,70" fill="none" stroke="#FF6A3D" stroke-width="1.2" stroke-linecap="round" opacity="0.06" />
+            <path d="M0,60 Q360,100 720,40 T1440,80" fill="none" stroke="#0E0E0E" stroke-width="1.2" stroke-linecap="round" opacity="0.05" />
+        </svg>
+
+        <div class="max-w-7xl mx-auto relative z-10 reveal">
+            
+            <div class="text-center max-w-2xl mx-auto mb-20">
+                <span class="tag mb-4 bg-cream border-2 border-ink text-ink"><span class="star text-coral">★</span>
+                    Kundenerfolg</span>
+                <h2 class="display text-5xl md:text-6xl mt-4">Einblick in die Praxis</h2>
+                <p class="text-ink/65 text-base mt-3 leading-relaxed">Wie die Zusammenarbeit konkret aussieht & was sie
+                    im Business-Alltag verändert.</p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
+
+                <div
+                    class="lg:col-span-6 bg-cream border-2 border-ink rounded-[28px] shadow-[8px_8px_0_#0E0E0E] flex flex-col justify-between relative pt-16 pb-10 px-8 md:px-10">
+                    
+                    <span class="paperclip" style="top: -16px; left: 10%;"></span>
+
+                    <div class="testimonial-polaroid hidden md:block w-[185px] pointer-events-auto">
+                        <div class="absolute -top-3 left-1/2 -translate-x-1/2 w-3.5 h-3.5 rounded-full bg-coral/80 border border-ink/20 shadow-sm"
+                            aria-hidden="true"></div>
+                        <div class="w-full aspect-square bg-[#E8E4D8] overflow-hidden border border-ink/10 mb-2">
+                            <img src="testimonial.png" alt="Johanna L." loading="lazy" decoding="async" class="w-full h-full object-cover">
+                        </div>
+                        <div
+                            class="text-center font-mono text-[9px] font-bold tracking-wider text-ink/50 uppercase select-none">
+                            Johanna L.</div>
+                        <div class="text-center hand text-xs text-coral mt-0.5 select-none">Coach & Client</div>
+                    </div>
+
+                    <div class="md:pr-[210px]">
+                        <div class="display text-7xl text-coral/20 leading-none h-4 pointer-events-none select-none">“
+                        </div>
+                        <blockquote class="display text-2xl md:text-3xl leading-snug text-ink mt-2 mb-8">
+                            Seitdem ich mit remoaid zusammenarbeite, ist endlich <span
+                                class="italic-pop text-coral">Ruhe</span> in mein tägliches Chaos gekommen. Sara denkt
+                            mit, erkennt Probleme früh und liefert Lösungen, bevor ich überhaupt fragen muss.
+                        </blockquote>
+                    </div>
+
+                    <div>
+                        <div class="flex items-center gap-4 mb-8">
+                            
+                            <div
+                                class="w-14 h-14 md:hidden rounded-full overflow-hidden border-2 border-ink flex items-center justify-center shadow-[2px_2px_0_#0e0e0e]">
+                                <img src="testimonial.png" alt="Johanna L." loading="lazy" decoding="async" class="w-full h-full object-cover">
+                            </div>
+                            <div>
+                                <div class="font-bold text-base text-ink leading-tight">Johanna L.</div>
+                                <div class="text-xs text-ink/50 font-mono">Coach & Trainerin · Partner seit 2024</div>
+                            </div>
+                        </div>
+
+                        <div class="border-t border-ink/10 pt-6">
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                <div>
+                                    <span
+                                        class="font-mono text-[9px] font-bold text-coral/80 tracking-wider uppercase block mb-1">GESTERN
+                                        // CHAOS</span>
+                                    <p class="text-xs text-ink/75 leading-relaxed">800+ unstrukturierte E-Mails,
+                                        Termindoppelungen & Notion im Rohzustand.</p>
+                                </div>
+                                <div>
+                                    <span
+                                        class="font-mono text-[9px] font-bold text-emerald-600 tracking-wider uppercase block mb-1">HEUTE
+                                        // SYSTEM</span>
+                                    <p class="text-xs text-ink/75 leading-relaxed font-bold">Saubere Postfächer,
+                                        strukturierte Notion-Dashboards & wöchentlicher Fokusgewinn.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div
+                    class="lg:col-span-3 bg-pink/15 border-2 border-ink rounded-[28px] shadow-[8px_8px_0_#0E0E0E] interactive-clarity-card flex flex-col justify-between p-8 relative overflow-hidden">
+
+                    <div class="chaos-view flex flex-col justify-between h-full">
+                        <div>
+                            <span
+                                class="font-mono text-[9px] font-bold tracking-widest text-ink/40 uppercase block mb-6">WORKFLOW
+                                // STATUS</span>
+                            <div class="display text-3xl leading-tight text-ink mb-4">Hier drohte das Chaos...</div>
+                            <p class="text-xs text-ink/70 leading-relaxed mb-6">So sah Johannas digitale Struktur vor
+                                remoaid aus:</p>
+                        </div>
+
+                        <div class="space-y-2">
+                            <div
+                                class="bg-white/80 border border-ink/10 rounded-lg p-2.5 flex items-center justify-between text-[11px] line-through text-ink/40">
+                                <span>✉ E-Mail-Berg (842)</span>
+                                <span>🚨</span>
+                            </div>
+                            <div
+                                class="bg-white/80 border border-ink/10 rounded-lg p-2.5 flex items-center justify-between text-[11px] line-through text-ink/40">
+                                <span>📅 Termin-Doppelung</span>
+                                <span>💥</span>
+                            </div>
+                            <div
+                                class="bg-white/80 border border-ink/10 rounded-lg p-2.5 flex items-center justify-between text-[11px] line-through text-ink/40">
+                                <span>📄 Passwort??.txt</span>
+                                <span>🔑</span>
+                            </div>
+                        </div>
+
+                        <div class="mt-6 text-center">
+                            <span class="hand text-xs text-coral animate-pulse">👉 Hover für Klarheit</span>
+                        </div>
+                    </div>
+
+                    <div class="system-view bg-[#EBF7F0] text-ink border-2 border-ink rounded-[26px]">
+                        <div>
+                            <span
+                                class="font-mono text-[9px] font-bold text-emerald-600 tracking-widest uppercase block mb-4">REMOAID
+                                // EFFECT</span>
+                            <div class="display text-3xl leading-tight text-ink mb-3">Erledigt mit System.</div>
+                            <p class="text-[11px] text-ink/75 leading-relaxed mb-6">Wir haben aufgeräumt &
+                                automatisierte Ablagen gebaut:</p>
+                        </div>
+
+                        <div class="space-y-2">
+                            <div
+                                class="bg-white border-2 border-ink rounded-lg p-2.5 flex items-center justify-between text-[11px] font-bold shadow-[2px_2px_0_#0E0E0E]">
+                                <span>✉ Postfach aufgeräumt</span>
+                                <span class="text-emerald-500 font-bold">✓</span>
+                            </div>
+                            <div
+                                class="bg-white border-2 border-ink rounded-lg p-2.5 flex items-center justify-between text-[11px] font-bold shadow-[2px_2px_0_#0E0E0E]">
+                                <span>📅 Notion-Kalender</span>
+                                <span class="text-emerald-500 font-bold">✓</span>
+                            </div>
+                            <div
+                                class="bg-white border-2 border-ink rounded-lg p-2.5 flex items-center justify-between text-[11px] font-bold shadow-[2px_2px_0_#0E0E0E]">
+                                <span>🔒 1Password Setup</span>
+                                <span class="text-emerald-500 font-bold">✓</span>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div
+                    class="lg:col-span-3 bg-ink text-cream border-2 border-ink rounded-[28px] p-8 shadow-[8px_8px_0_#FFE9A8] flex flex-col justify-between relative overflow-hidden">
+                    
+                    <div class="absolute inset-y-0 right-0 w-3 opacity-15 pointer-events-none"
+                        style="background-image: repeating-linear-gradient(180deg, #FAF6EC 0px, #FAF6EC 1px, transparent 1px, transparent 8px); background-size: 12px 80px;">
+                    </div>
+
+                    <div>
+                        <div class="font-mono text-[9px] font-bold tracking-widest text-cream/40 uppercase mb-8">
+                            ZERTIFIZIERTER ERFOLG</div>
+
+                        <div class="mb-8">
+                            <div class="display text-5xl text-coral font-bold leading-none mb-1">+15h</div>
+                            <div class="text-xs uppercase font-mono tracking-wider text-cream/70">Fokusgewinn / Woche
+                            </div>
+                            <p class="text-cream/50 text-[10px] mt-1">Johanna konnte 2 zusätzliche Premium-Kunden
+                                annehmen.</p>
+                        </div>
+
+                        <div class="mb-8">
+                            <div class="display text-5xl text-butter font-bold leading-none mb-1">ZERO</div>
+                            <div class="text-xs uppercase font-mono tracking-wider text-cream/70">E-Mail Overload</div>
+                            <p class="text-cream/50 text-[10px] mt-1">Lückenlose Beantwortung & strukturierte
+                                Postfächer.</p>
+                        </div>
+
+                        <div>
+                            <div class="display text-5xl text-cream font-bold leading-none mb-1">100%</div>
+                            <div class="text-xs uppercase font-mono tracking-wider text-cream/70">Kopf-Freiheit</div>
+                            <p class="text-cream/50 text-[10px] mt-1">Eine verlässliche Sparringspartnerin im
+                                Backoffice.</p>
+                        </div>
+                    </div>
+
+                    <div class="mt-8 border-t border-cream/10 pt-6 text-[9px] font-mono text-cream/40 tracking-wider">
+                        remoaid // OUTCOME INDEX
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="preise" class="py-20 lg:py-32 px-6 relative overflow-hidden">
+        
+        <svg class="doodle coral" style="top:40px; right:6%;" width="60" height="60" viewBox="0 0 60 60">
+            <path d="M30 6 L34 26 L54 30 L34 34 L30 54 L26 34 L6 30 L26 26 Z" />
+        </svg>
+
+        <!-- Subtle background wave lines in Preise section -->
+        <svg class="subtle-bg-wave absolute top-1/3 left-0 w-full pointer-events-none z-0" height="140" viewBox="0 0 1440 140" preserveAspectRatio="none" aria-hidden="true">
+            <path d="M-50,70 Q300,10 650,80 T1350,70 T1500,110" fill="none" stroke="#0E0E0E" stroke-width="1.2" stroke-linecap="round" opacity="0.06" />
+            <path d="M-50,80 Q300,20 650,90 T1350,80 T1500,120" fill="none" stroke="#FF6A3D" stroke-width="1.0" stroke-linecap="round" opacity="0.04" />
+        </svg>
+
+        <div class="max-w-7xl mx-auto relative z-10">
+            <div class="text-center max-w-3xl mx-auto mb-14">
+                <span class="tag mb-6 reveal"><span class="star">★</span> Kooperation</span>
+                <h2 class="display text-5xl md:text-6xl lg:text-7xl mt-5 mb-5 reveal">
+                    Keine Schablone.<br>
+                    <span class="italic-pop text-coral">Nur echtes Custom Pricing.</span>
+                </h2>
+                <p class="text-ink/70 text-lg reveal max-w-xl mx-auto">
+                    Jedes Business tickt anders. Deshalb arbeite ich nicht mit starren Paketen von der Stange, sondern
+                    passe das Stundenkontingent und meine Leistungen exakt an deinen tatsächlichen Bedarf an.
+                </p>
+            </div>
+
+            <div class="grid lg:grid-cols-3 gap-6 reveal-stagger">
+                
+                <div
+                    class="p-8 bg-mint/10 border-2 border-ink rounded-[24px] shadow-[4px_4px_0_#0E0E0E] hover:-translate-y-1 hover:shadow-[6px_6px_0_#0E0E0E] transition-all duration-300 flex flex-col justify-between min-h-[320px]">
+                    <div>
+                        <div class="flex justify-between items-start mb-6">
+                            <span class="text-xs font-mono text-ink/55">#01 / INHALT</span>
+                            <span class="text-xs font-mono bg-ink text-cream px-2 py-0.5 rounded">MODULAR</span>
+                        </div>
+                        <h3 class="display text-3xl mb-4 text-ink">Modularer Scope</h3>
+                        <p class="text-ink/75 text-sm leading-relaxed">
+                            Warum für Dinge zahlen, die du nicht brauchst? Du wählst exakt die Module aus, die dich im
+                            Alltag entlasten — ob E-Mail-Organisation, Notion-Strukturen, Kanzleipflege oder
+                            Rechnungs-Ablage.
+                        </p>
+                    </div>
+                </div>
+
+                <div
+                    class="p-8 bg-pink/10 border-2 border-ink rounded-[24px] shadow-[4px_4px_0_#0E0E0E] hover:-translate-y-1 hover:shadow-[6px_6px_0_#0E0E0E] transition-all duration-300 flex flex-col justify-between min-h-[320px] relative">
+                    <span
+                        class="absolute -top-3.5 left-8 bg-coral text-ink border border-ink text-[10px] font-mono font-bold tracking-wider uppercase px-2.5 py-0.5 rounded">Echtzeit-Tracking</span>
+                    <div>
+                        <div class="flex justify-between items-start mb-6">
+                            <span class="text-xs font-mono text-ink/55">#02 / KAPAZITÄT</span>
+                            <span class="text-xs font-mono bg-ink text-cream px-2 py-0.5 rounded">DYNAMIC</span>
+                        </div>
+                        <h3 class="display text-3xl mb-4 text-coral">Flex-Budget</h3>
+                        <p class="text-ink/75 text-sm leading-relaxed">
+                            Keine starren Monatsstufen. Wir vereinbaren ein bedarfsgerechtes Stundenbudget oder
+                            definieren feste Projektpauschalen für Notion-Setups. Abgerechnet wird minutengenau per
+                            transparentem Toggl-Zeitsheet.
+                        </p>
+                    </div>
+                </div>
+
+                <div
+                    class="p-8 bg-lilac/10 border-2 border-ink rounded-[24px] shadow-[4px_4px_0_#0E0E0E] hover:-translate-y-1 hover:shadow-[6px_6px_0_#0E0E0E] transition-all duration-300 flex flex-col justify-between min-h-[320px]">
+                    <div>
+                        <div class="flex justify-between items-start mb-6">
+                            <span class="text-xs font-mono text-ink/55">#03 / KONDITION</span>
+                            <span class="text-xs font-mono bg-ink text-cream px-2 py-0.5 rounded">FAIR</span>
+                        </div>
+                        <h3 class="display text-3xl mb-4 text-ink">100% Freiheit</h3>
+                        <p class="text-ink/75 text-sm leading-relaxed">
+                            Bei mir gibt es keine künstlichen Mindestvertragslaufzeiten oder Knebelverträge. Die
+                            Zusammenarbeit ist jederzeit monatlich kündbar oder in den Stunden anpassbar.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div
+                class="mt-8 bento bg-butter border-2 border-ink flex flex-col md:flex-row items-start md:items-center justify-between gap-6 p-8 rounded-[24px] shadow-[4px_4px_0_#0E0E0E] reveal">
+                <div class="max-w-3xl">
+                    <span class="display text-2xl block mb-1">Bereit für dein maßgeschneidertes Setup?</span>
+                    <p class="text-ink/75 text-sm">Lass uns in einem kurzen, kostenlosen Erstgespräch herausfinden, wo
+                        der Schuh drückt, und das perfekte, budgetgerechte Arbeitsmodell für dein Business schnüren.</p>
+                </div>
+                <a href="#kontakt" class="btn btn-dark flex-shrink-0"><span>Erstgespräch vereinbaren</span><span
+                        class="arrow">↗</span></a>
+            </div>
+        </div>
+    </section>
+
+    <section id="faq" class="py-20 lg:py-28 px-6 relative overflow-hidden">
+        
+        <!-- Subtle background wave lines in FAQ section -->
+        <svg class="subtle-bg-wave absolute bottom-4 left-0 w-full pointer-events-none z-0" height="90" viewBox="0 0 1440 90" preserveAspectRatio="none" aria-hidden="true">
+            <path d="M0,50 Q360,10 720,70 T1440,30" fill="none" stroke="#0E0E0E" stroke-width="1.2" stroke-linecap="round" opacity="0.06" />
+            <path d="M0,60 Q360,20 720,80 T1440,40" fill="none" stroke="#FF6A3D" stroke-width="1.2" stroke-linecap="round" opacity="0.05" />
+        </svg>
+
+        <div class="max-w-4xl mx-auto relative z-10">
+            <div class="text-center mb-12">
+                <span class="tag mb-6 reveal"><span class="star">★</span> FAQ</span>
+                <h2 class="display text-5xl md:text-6xl lg:text-7xl mt-5 reveal">
+                    Häufige Fragen,<br>
+                    <span class="italic-pop text-coral">ehrliche Antworten.</span>
+                </h2>
+            </div>
+
+            <div class="reveal">
+                <div class="faq">
+                    <button class="faq-q" onclick="toggleFaq(this)">
+                        <span class="display text-xl md:text-2xl">Wie läuft die Zusammenarbeit ab?</span>
+                        <span class="faq-icon"><i class="fa-solid fa-plus text-sm"></i></span>
+                    </button>
+                    <div class="faq-a">
+                        <p class="px-6 pb-6 pr-12 text-ink/75 leading-relaxed">Nach dem kostenlosen Kennenlerngespräch
+                            kläre ich mit dir, welches Modell am besten zu deinem Bedarf passt. Du erhältst ein
+                            individuelles Angebot, eine Vereinbarung und einen Starttermin.
+                            Die Zusammenarbeit läuft ortsunabhängig.</p>
+                    </div>
+                </div>
+                <div class="faq">
+                    <button class="faq-q" onclick="toggleFaq(this)">
+                        <span class="display text-xl md:text-2xl">Wie flexibel ist die Zusammenarbeit?</span>
+                        <span class="faq-icon"><i class="fa-solid fa-plus text-sm"></i></span>
+                    </button>
+                    <div class="faq-a">
+                        <p class="px-6 pb-6 pr-12 text-ink/75 leading-relaxed">Extrem flexibel! Da jede Zusammenarbeit
+                            maßgeschneidert vereinbart wird, passen wir Stundenkontingente oder Projektvolumen ganz
+                            einfach an dein aktuelles Business-Wachstum an. Nicht genutzte Stunden verfallen nicht
+                            ungenutzt am Monatsende.</p>
+                    </div>
+                </div>
+                <div class="faq">
+                    <button class="faq-q" onclick="toggleFaq(this)">
+                        <span class="display text-xl md:text-2xl">Was passiert, wenn ich spontan mehr Support
+                            brauche?</span>
+                        <span class="faq-icon"><i class="fa-solid fa-plus text-sm"></i></span>
+                    </button>
+                    <div class="faq-a">
+                        <p class="px-6 pb-6 pr-12 text-ink/75 leading-relaxed">Gar kein Problem! Wenn in einem Monat mal
+                            mehr Arbeit ansteht oder ein größeres Projekt gestartet wird, können wir das Kontingent nach
+                            Absprache flexibel aufstocken. Ich informiere dich immer transparent über deinen aktuellen
+                            Stand.</p>
+                    </div>
+                </div>
+                <div class="faq">
+                    <button class="faq-q" onclick="toggleFaq(this)">
+                        <span class="display text-xl md:text-2xl">Wie funktioniert die Zeiterfassung und
+                            Abrechnung?</span>
+                        <span class="faq-icon"><i class="fa-solid fa-plus text-sm"></i></span>
+                    </button>
+                    <div class="faq-a">
+                        <p class="px-6 pb-6 pr-12 text-ink/75 leading-relaxed">Ich erfasse meine Arbeitszeit
+                            minutengenau (per Toggl). Am Monatsende erhältst du eine transparente Aufstellung aller
+                            erbrachten Leistungen zusammen mit deiner Rechnung. So zahlst du nur für die Zeit, die auch
+                            wirklich produktiv genutzt wurde.</p>
+                    </div>
+                </div>
+                <div class="faq">
+                    <button class="faq-q" onclick="toggleFaq(this)">
+                        <span class="display text-xl md:text-2xl">Kann ich monatlich kündigen?</span>
+                        <span class="faq-icon"><i class="fa-solid fa-plus text-sm"></i></span>
+                    </button>
+                    <div class="faq-a">
+                        <p class="px-6 pb-6 pr-12 text-ink/75 leading-relaxed">Ja. Keine Mindestlaufzeit — du kannst
+                            jederzeit zum Monatsende kündigen oder pausieren.</p>
+                    </div>
+                </div>
+                <div class="faq">
+                    <button class="faq-q" onclick="toggleFaq(this)">
+                        <span class="display text-xl md:text-2xl">Was unterscheidet dich von anderen VAs?</span>
+                        <span class="faq-icon"><i class="fa-solid fa-plus text-sm"></i></span>
+                    </button>
+                    <div class="faq-a">
+                        <p class="px-6 pb-6 pr-12 text-ink/75 leading-relaxed">Ich bringe Struktur, Klarheit und echtes
+                            Mitdenken. Mit mehrjähriger Büro-Erfahrung, juristischem Background und digitalem Know-how
+                            bekommst du keine 08/15-Assistenz, sondern einen Sparringspartner auf Augenhöhe.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="kontakt" class="py-20 lg:py-32 px-6 relative overflow-hidden">
+        <div class="max-w-7xl mx-auto">
+            
+            <div
+                class="bg-ink text-cream rounded-[36px] p-10 md:p-16 lg:p-20 border-2 border-ink shadow-[8px_8px_0_#FFE9A8] relative overflow-hidden reveal">
+                
+                <div
+                    class="absolute -top-32 -right-32 w-[400px] h-[400px] rounded-full bg-pink/20 blur-3xl pointer-events-none">
+                </div>
+                <div
+                    class="absolute -bottom-32 -left-32 w-[350px] h-[350px] rounded-full bg-lilac/25 blur-3xl pointer-events-none">
+                </div>
+
+                <div class="relative z-10 grid lg:grid-cols-12 gap-12 items-center">
+                    
+                    <div class="lg:col-span-7">
+                        <span class="tag bg-cream text-ink border-2 border-ink mb-6"><span
+                                class="star text-coral">★</span> Kooperation</span>
+                        <h2 class="display text-4xl md:text-5xl lg:text-6xl mt-4 mb-6 leading-tight text-cream">
+                            Bereit für<br>
+                            <span class="italic-pop text-coral">spürbare Struktur</span>?
+                        </h2>
+                        <p class="text-cream/80 text-base md:text-lg max-w-xl leading-relaxed">
+                            Jedes gut organisierte Setup beginnt mit einer formlosen E-Mail. Schreib mir einfach eine
+                            kurze Nachricht – ich melde mich innerhalb von 24 Stunden persönlich bei dir, um unser
+                            kostenloses 30-minütiges Kennenlerngespräch zu planen.
+                        </p>
+                    </div>
+
+                    <div class="lg:col-span-5 flex justify-center lg:justify-end">
+                        <div
+                            class="w-full max-w-md bg-cream text-ink rounded-[24px] p-8 border-2 border-ink shadow-[6px_6px_0_#FF6A3D] relative transform rotate-[1.5deg] hover:rotate-0 transition-transform duration-300">
+                            
+                            <div class="absolute -top-4 right-10 w-6 h-12 border-2 border-ink/40 rounded-full pointer-events-none"
+                                style="background-color: #E2E2E2; transform: rotate(-15deg); box-shadow: 2px 2px 5px rgba(0,0,0,0.15); z-index: 20;">
+                                <div class="absolute inset-1 border border-ink/10 rounded-full"></div>
+                            </div>
+
+                            <div class="border-b-2 border-ink pb-4 mb-4 flex justify-between items-center">
+                                <span class="font-mono text-xs font-bold tracking-wider text-ink/65">DIRECT
+                                    MESSAGE</span>
+                                <span
+                                    class="text-[10px] font-mono bg-ink text-cream px-2 py-0.5 rounded uppercase tracking-widest">Open</span>
+                            </div>
+
+                            <div class="flex flex-col gap-2.5 font-mono text-[11px] text-ink/80">
+                                <div><span class="text-coral font-bold">EMPFÄNGER:</span> info@remoaid.de</div>
+                                <div><span class="text-coral font-bold">BETREFF:</span> setup check up</div>
+                            </div>
+
+                            <div class="my-6">
+                                <a href="mailto:info@remoaid.de"
+                                    class="display text-2xl md:text-3xl lg:text-[2.1rem] text-ink hover:text-coral transition-colors duration-300 inline-flex items-center gap-2 font-bold leading-none">
+                                    info@remoaid.de <span class="text-coral">↗</span>
+                                </a>
+                            </div>
+
+                            <div class="border-t border-ink/10 pt-4">
+                                <p class="hand text-xl text-ink/75">— ich freue mich auf dich!</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="px-6 pb-10">
+        <div
+            class="max-w-7xl mx-auto pt-10 border-t border-ink/15 flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
+            <div>
+                <a href="#" class="inline-block"><img src="remoaid-new.webp" alt="remoaid" loading="lazy" decoding="async" class="h-9 w-auto"></a>
+                <p class="text-ink/60 text-sm mt-2">© 2026</p>
+            </div>
+            <div class="flex flex-wrap gap-x-8 gap-y-2 text-sm">
+                <a href="impressum/" class="hover:text-coral transition">Impressum</a>
+                <a href="datenschutz/" class="hover:text-coral transition">Datenschutz</a>
+                <a href="#" class="hover:text-coral transition"><i class="fa-brands fa-linkedin"></i></a>
+                <a href="#" class="hover:text-coral transition"><i class="fa-brands fa-instagram"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function setDeskMode(mode) {
+            const container = document.getElementById('desk-shelf-container');
+            const btnChaos = document.getElementById('btn-chaos');
+            const btnSystem = document.getElementById('btn-system');
+
+            if (!container) return;
+
+            if (mode === 'chaos') {
+                container.classList.remove('system-active');
+                container.classList.add('chaos-active');
+                btnChaos.classList.add('active');
+                btnSystem.classList.remove('active');
+            } else {
+                container.classList.remove('chaos-active');
+                container.classList.add('system-active');
+                btnSystem.classList.add('active');
+                btnChaos.classList.remove('active');
+            }
+        }
+
+        const io = new IntersectionObserver((entries) => {
+            entries.forEach(e => {
+                if (e.isIntersecting) {
+                    e.target.classList.add('in');
+
+                    if (e.target.id === 'organisation') {
+
+                        setDeskMode('chaos');
+
+                        setTimeout(() => {
+                            setDeskMode('system');
+                        }, 1200);
+                    }
+
+                    io.unobserve(e.target);
+                }
+            });
+        }, { threshold: 0, rootMargin: '0px 0px -150px 0px' });
+
+        document.querySelectorAll('.reveal, .reveal-stagger, .sorting-area, #organisation').forEach(el => io.observe(el));
+
+        function toggleFaq(btn) {
+            const item = btn.closest('.faq');
+            const wasOpen = item.classList.contains('open');
+            document.querySelectorAll('.faq.open').forEach(i => i.classList.remove('open'));
+            if (!wasOpen) item.classList.add('open');
+        }
+    </script>
+</body>
+
+</html>
